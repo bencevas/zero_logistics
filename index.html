@@ -1403,49 +1403,59 @@
       }
       .nav-badge { display: none; }
 
-      /* Hero - full width, stacked layout */
-      #hero { min-height: auto; }
-      .hero-inner {
+      /* Hero - image on top, glass card overlapping */
+      #hero {
+        min-height: auto;
         display: flex;
         flex-direction: column;
+      }
+      .hero-inner {
+        display: flex;
+        flex-direction: column-reverse;
         max-width: 100%;
-        padding: 72px 20px 0 20px;
+        padding: 56px 0 0 0;
         min-height: auto;
       }
       .hero-left {
-        padding: 0;
+        padding: 0 20px 40px 20px;
         width: 100%;
+        margin-top: -80px;
+        z-index: 3;
       }
       .hero-pane {
-        padding: 32px 24px;
+        padding: 28px 24px;
         max-width: 100%;
         border-radius: 20px;
+        box-shadow: 0 -8px 40px rgba(0,133,202,0.12), 0 4px 20px rgba(0,0,0,0.08);
       }
-      .hero-pane .logo-mark .ln1 { font-size: 32px; }
-      .hero-pane .logo-mark .ln2 { font-size: 19px; }
-      .hero-tagline { font-size: 15px; }
+      .hero-pane .logo-mark .ln1 { font-size: 30px; }
+      .hero-pane .logo-mark .ln2 { font-size: 18px; }
+      .hero-tagline { font-size: 15px; margin-bottom: 24px; }
       .hero-stats {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
+        gap: 12px;
+        padding: 16px;
+        margin-bottom: 24px;
       }
       .hero-stat { text-align: center; }
-      .hero-stat-value { font-size: 20px; }
-      .hero-stat-label { font-size: 8px; }
-      .hero-stat-sep { display: none; }
+      .h-stat-val { font-size: 18px; }
+      .h-stat-lbl { font-size: 8px; letter-spacing: 0.08em; }
+      .h-stat-div { display: none; }
       .hero-right {
         width: 100%;
-        padding: 32px 0 0 0;
+        padding: 0;
         justify-content: center;
         overflow: hidden;
       }
       .hero-container-img {
-        width: 140%;
+        width: 100%;
         max-width: none;
-        margin-left: -20%;
+        margin-left: 0;
         object-fit: cover;
-        object-position: center top;
-        max-height: 50vh;
+        object-position: center center;
+        height: 45vh;
+        min-height: 280px;
       }
 
       /* Fleet */
@@ -1512,17 +1522,18 @@
       .nav-logo .ln2 { font-size: 11px; }
       .nav-links { gap: 16px; }
       .nav-links a { font-size: 10px; }
-      .hero-inner { padding: 64px 16px 0 16px; }
+      .hero-inner { padding: 52px 0 0 0; }
+      .hero-left { padding: 0 16px 32px 16px; margin-top: -60px; }
       .hero-pane { padding: 24px 20px; }
-      .hero-pane .logo-mark .ln1 { font-size: 26px; }
-      .hero-pane .logo-mark .ln2 { font-size: 16px; }
-      .hero-tagline { font-size: 14px; }
-      .hero-stat-value { font-size: 18px; }
-      .hero-stat-label { font-size: 7px; }
+      .hero-pane .logo-mark .ln1 { font-size: 24px; }
+      .hero-pane .logo-mark .ln2 { font-size: 15px; }
+      .hero-tagline { font-size: 14px; margin-bottom: 20px; }
+      .h-stat-val { font-size: 16px; }
+      .h-stat-lbl { font-size: 7px; }
+      .hero-stats { padding: 12px; margin-bottom: 20px; }
       .hero-container-img {
-        width: 160%;
-        margin-left: -30%;
-        max-height: 45vh;
+        height: 40vh;
+        min-height: 240px;
       }
       .hero-tagline { font-size: 15px; }
       .hero-stat-value { font-size: 18px; }
