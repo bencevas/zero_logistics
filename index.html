@@ -548,12 +548,47 @@
     
     /* Scheduling Widget */
     .sched-widget {
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
       border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+        inset 0 0 12px 6px rgba(255, 255, 255, 0.6);
       padding: 28px;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .sched-widget::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.8),
+        transparent
+      );
+    }
+    .sched-widget::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.8),
+        transparent,
+        rgba(255, 255, 255, 0.3)
+      );
     }
     .sched-widget-header {
       display: flex;
@@ -561,20 +596,20 @@
       justify-content: space-between;
       margin-bottom: 24px;
       padding-bottom: 16px;
-      border-bottom: 1px solid rgba(0,133,202,0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.15);
     }
     .sched-widget-title {
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
       font-size: 18px;
-      color: var(--text);
+      color: #FFFFFF;
     }
     .sched-widget-month {
       font-family: 'Azeret Mono', monospace;
       font-size: 11px;
       letter-spacing: 0.1em;
-      color: var(--blue);
-      background: rgba(0,133,202,0.08);
+      color: var(--glacier);
+      background: rgba(0,180,230,0.15);
       padding: 6px 12px;
       border-radius: 6px;
     }
@@ -592,7 +627,7 @@
       font-size: 9px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--dim);
+      color: rgba(255,255,255,0.5);
       text-align: center;
       padding: 8px 0;
     }
@@ -608,13 +643,13 @@
       justify-content: center;
       font-family: 'Open Sans', sans-serif;
       font-size: 13px;
-      color: var(--text);
+      color: rgba(255,255,255,0.9);
       border-radius: 8px;
       cursor: pointer;
       transition: all 0.15s;
     }
     .sched-cal-day:hover {
-      background: rgba(0,133,202,0.08);
+      background: rgba(255,255,255,0.15);
     }
     .sched-cal-day.is-today {
       background: var(--blue);
@@ -634,23 +669,24 @@
       background: var(--glacier);
     }
     .sched-cal-day.is-disabled {
-      color: var(--dim);
+      color: rgba(255,255,255,0.25);
       cursor: default;
     }
     .sched-cal-day.is-disabled:hover {
       background: transparent;
     }
     .sched-pickups {
-      background: rgba(0,133,202,0.04);
+      background: rgba(255,255,255,0.08);
       border-radius: 12px;
       padding: 16px;
+      border: 1px solid rgba(255,255,255,0.1);
     }
     .sched-pickups-title {
       font-family: 'Azeret Mono', monospace;
       font-size: 9px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: rgba(255,255,255,0.5);
       margin-bottom: 12px;
     }
     .sched-pickup-item {
@@ -658,7 +694,7 @@
       align-items: center;
       gap: 12px;
       padding: 10px 0;
-      border-bottom: 1px solid rgba(0,133,202,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
     .sched-pickup-item:last-child {
       border-bottom: none;
@@ -668,7 +704,7 @@
       font-family: 'Azeret Mono', monospace;
       font-size: 12px;
       font-weight: 500;
-      color: var(--blue);
+      color: var(--glacier);
       min-width: 52px;
     }
     .sched-pickup-info {
@@ -678,12 +714,12 @@
       font-family: 'Open Sans', sans-serif;
       font-size: 13px;
       font-weight: 600;
-      color: var(--text);
+      color: #FFFFFF;
     }
     .sched-pickup-temp {
       font-family: 'Azeret Mono', monospace;
       font-size: 10px;
-      color: var(--muted);
+      color: rgba(255,255,255,0.6);
     }
     .sched-pickup-status {
       width: 8px;
