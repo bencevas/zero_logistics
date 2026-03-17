@@ -132,22 +132,28 @@
       position: fixed;
       inset: 0 0 auto 0;
       z-index: 200;
-      padding: 24px 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      padding: 24px 0;
       background: rgba(255,255,255,0.82);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
       border-bottom: 1px solid rgba(0,133,202,0.08);
       box-shadow: 0 1px 0 rgba(0,0,0,0.04);
     }
+    .nav-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
     .nav-logo .ln1,
     .nav-logo .ln2 {
-      font-family: 'Azeret Mono', monospace;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
     }
-    .nav-logo .ln1 { font-size: 26px; font-weight: 600; }
-    .nav-logo .ln2 { font-size: 16px; font-weight: 500; }
+    .nav-logo .ln1 { font-size: 26px; }
+    .nav-logo .ln2 { font-size: 16px; }
     .nav-links { display: flex; gap: 36px; list-style: none; }
     .nav-links a {
       font-family: 'Azeret Mono', monospace;
@@ -189,9 +195,10 @@
       z-index: 1;
       display: grid;
       grid-template-columns: 1fr 1.1fr;
-      width: 100%;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 72px 48px 0 48px;
       min-height: 100vh;
-      padding-top: 72px;
     }
 
     /* LEFT: glass pane */
@@ -199,10 +206,14 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 60px 40px 60px 72px;
+      padding: 60px 40px 60px 0;
+      position: relative;
+      z-index: 2;
     }
 
     .hero-pane {
+      position: sticky;
+      top: 120px; /* sits just below the nav */
       background: var(--hero-glass-bg);
       backdrop-filter: blur(36px);
       -webkit-backdrop-filter: blur(36px);
@@ -269,18 +280,166 @@
 
     /* RIGHT: container image */
     .hero-right {
+      position: relative;
       display: flex;
       align-items: center;
-      justify-content: center;
-      padding: 60px 72px 60px 20px;
+      justify-content: flex-start;
+      padding: 60px 0 60px 0;
+      overflow: visible;
     }
 
     .hero-container-img {
-      width: 100%;
-      height: 50vh;
-      min-height: 380px;
+      width: 180%;
+      max-width: none;
+      height: auto;
       object-fit: contain;
-      object-position: center center;
+      margin-left: -20%;
+    }
+
+    /* ─── Fleet showcase (dark photo + glass) ────────────────── */
+    #fleet-showcase {
+      position: relative;
+      padding: 100px 0;
+      overflow: hidden;
+      background: #FFFFFF;
+    }
+    .fleet-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 48px;
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .fleet-content {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .fleet-tag {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--blue);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .fleet-tag::before {
+      content: '';
+      width: 22px;
+      height: 1px;
+      background: var(--blue);
+      flex-shrink: 0;
+    }
+    .fleet-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 38px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      color: var(--text);
+    }
+    .fleet-title span {
+      background: linear-gradient(135deg, var(--blue), var(--glacier));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .fleet-desc {
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+    .fleet-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 8px;
+    }
+    .fleet-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .fleet-stat-value {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 28px;
+      color: var(--blue);
+    }
+    .fleet-stat-label {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dim);
+    }
+    .fleet-image-wrap {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0,133,202,0.12), 0 8px 24px rgba(0,0,0,0.06);
+    }
+    .fleet-image-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      border: 1px solid rgba(0,133,202,0.08);
+      pointer-events: none;
+      z-index: 2;
+    }
+    .fleet-image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .fleet-image-badge {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 12px 18px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.95);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+      z-index: 3;
+    }
+    .fleet-badge-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--blue), var(--glacier));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      font-size: 16px;
+    }
+    .fleet-badge-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .fleet-badge-value {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text);
+    }
+    .fleet-badge-label {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dim);
     }
 
     /* ─── Buttons ────────────────────────────────────────────── */
@@ -531,6 +690,633 @@
     .progress-labels { display: flex; justify-content: space-between; margin-top: 10px; }
     .progress-lbl { font-family: 'Azeret Mono', monospace; font-size: 10px; color: var(--dim); }
 
+    /* Shipments list (full-width) */
+    .shipments-list-section {
+      padding: 80px 0;
+      background: #F8FBFD;
+    }
+    .shipments-list-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .shipments-list-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 28px;
+      color: var(--text);
+    }
+    .shipments-list-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .shipments-search {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #FFFFFF;
+      border: 1px solid rgba(0,133,202,0.15);
+      border-radius: 8px;
+      padding: 10px 14px;
+      min-width: 240px;
+    }
+    .shipments-search svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--dim);
+      flex-shrink: 0;
+    }
+    .shipments-search input {
+      border: none;
+      outline: none;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 14px;
+      color: var(--text);
+      width: 100%;
+    }
+    .shipments-search input::placeholder {
+      color: var(--dim);
+    }
+    .shipments-filter {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #FFFFFF;
+      border: 1px solid rgba(0,133,202,0.15);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-family: 'Azeret Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .shipments-filter:hover {
+      border-color: var(--blue);
+    }
+    .shipments-filter svg {
+      width: 14px;
+      height: 14px;
+      fill: var(--muted);
+    }
+    .shipments-table {
+      background: #FFFFFF;
+      border-radius: 16px;
+      border: 1px solid rgba(0,133,202,0.08);
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .shipments-table-head {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 0.8fr 0.7fr 0.9fr 1fr 0.6fr;
+      gap: 16px;
+      padding: 16px 24px;
+      background: rgba(0,133,202,0.04);
+      border-bottom: 1px solid rgba(0,133,202,0.08);
+    }
+    .shipments-th {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .shipments-row {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 0.8fr 0.7fr 0.9fr 1fr 0.6fr;
+      gap: 16px;
+      padding: 20px 24px;
+      border-bottom: 1px solid rgba(0,133,202,0.06);
+      align-items: center;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .shipments-row:hover {
+      background: rgba(0,133,202,0.03);
+    }
+    .shipments-row:last-child {
+      border-bottom: none;
+    }
+    .shipments-row.is-selected {
+      background: rgba(0,133,202,0.08);
+      border-left: 3px solid var(--blue);
+      padding-left: 21px;
+    }
+    .sr-id {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .sr-route {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .sr-route-from,
+    .sr-route-to {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 13px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .sr-route-arrow {
+      font-size: 10px;
+      color: var(--dim);
+    }
+    .sr-route-to {
+      color: var(--muted);
+    }
+    .sr-temp {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--blue);
+    }
+    .sr-temp-range {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 10px;
+      color: var(--dim);
+      margin-top: 2px;
+    }
+    .sr-weight {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 14px;
+      color: var(--text);
+    }
+    .sr-weight-unit {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .sr-eta {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .sr-eta-time {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--text);
+    }
+    .sr-eta-date {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 10px;
+      color: var(--dim);
+    }
+    .sr-status {
+      display: flex;
+      align-items: center;
+    }
+    .sr-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+    .sr-action-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      border: 1px solid rgba(0,133,202,0.15);
+      background: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .sr-action-btn:hover {
+      border-color: var(--blue);
+      background: rgba(0,133,202,0.06);
+    }
+    .sr-action-btn svg {
+      width: 14px;
+      height: 14px;
+      fill: var(--muted);
+    }
+    .sr-action-btn:hover svg {
+      fill: var(--blue);
+    }
+    .shipments-table-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      background: rgba(0,133,202,0.02);
+      border-top: 1px solid rgba(0,133,202,0.06);
+    }
+    .shipments-count {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 11px;
+      color: var(--dim);
+      letter-spacing: 0.08em;
+    }
+    .shipments-pagination {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .shipments-page {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      border: none;
+      background: transparent;
+      font-family: 'Azeret Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .shipments-page:hover {
+      background: rgba(0,133,202,0.08);
+      color: var(--blue);
+    }
+    .shipments-page.is-active {
+      background: var(--blue);
+      color: #FFFFFF;
+    }
+
+    /* Notifications tile widget (1:1 square) */
+    .notif-tile {
+      aspect-ratio: 1 / 1;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      background: #F8FBFD;
+      overflow: hidden;
+    }
+    .notif-tile-header {
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(0,133,202,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .notif-tile-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--text);
+    }
+    .notif-tile-badge {
+      background: #CC2828;
+      color: #FFFFFF;
+      font-family: 'Azeret Mono', monospace;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 10px;
+    }
+    .notif-tile-list {
+      flex: 1;
+      padding: 8px 0;
+      overflow-y: auto;
+    }
+    .notif-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(0,133,202,0.05);
+      transition: background 0.15s;
+      cursor: pointer;
+    }
+    .notif-item:hover {
+      background: rgba(0,133,202,0.04);
+    }
+    .notif-item:last-child {
+      border-bottom: none;
+    }
+    .notif-item--unread {
+      background: rgba(0,133,202,0.06);
+    }
+    .notif-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 14px;
+    }
+    .notif-icon--alert {
+      background: rgba(204,40,40,0.12);
+      color: #CC2828;
+    }
+    .notif-icon--warn {
+      background: rgba(204,136,0,0.12);
+      color: #CC8800;
+    }
+    .notif-icon--info {
+      background: rgba(0,133,202,0.10);
+      color: var(--blue);
+    }
+    .notif-icon--ok {
+      background: rgba(0,168,96,0.10);
+      color: #00A860;
+    }
+    .notif-content {
+      flex: 1;
+      min-width: 0;
+    }
+    .notif-text {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .notif-text strong {
+      font-weight: 600;
+    }
+    .notif-meta {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.08em;
+      color: var(--dim);
+      text-transform: uppercase;
+    }
+    .notif-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--blue);
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+    .notif-tile-footer {
+      padding: 12px 16px;
+      border-top: 1px solid rgba(0,133,202,0.08);
+      text-align: center;
+    }
+    .notif-tile-footer a {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .notif-tile-footer a:hover {
+      opacity: 0.7;
+    }
+
+    /* Chat tile widget (1:1 square) */
+    .chat-tile {
+      aspect-ratio: 1 / 1;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      background: #F8FBFD;
+      overflow: hidden;
+    }
+    .chat-tile-header {
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(0,133,202,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .chat-tile-header-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .chat-tile-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      color: #FFFFFF;
+    }
+    .chat-tile-name {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--text);
+    }
+    .chat-tile-status {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #00A860;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .chat-tile-status::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #00A860;
+    }
+    .chat-tile-messages {
+      flex: 1;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      overflow-y: auto;
+    }
+    .chat-msg {
+      max-width: 82%;
+      padding: 10px 14px;
+      border-radius: 14px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .chat-msg--in {
+      align-self: flex-start;
+      background: #FFFFFF;
+      border: 1px solid rgba(0,133,202,0.10);
+      color: var(--text);
+      border-bottom-left-radius: 4px;
+    }
+    .chat-msg--out {
+      align-self: flex-end;
+      background: var(--blue);
+      color: #FFFFFF;
+      border-bottom-right-radius: 4px;
+    }
+    .chat-msg-time {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 9px;
+      color: var(--dim);
+      margin-top: 4px;
+    }
+    .chat-msg--out .chat-msg-time {
+      color: rgba(255,255,255,0.6);
+      text-align: right;
+    }
+    .chat-tile-input {
+      padding: 12px 16px;
+      border-top: 1px solid rgba(0,133,202,0.08);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #FFFFFF;
+    }
+    .chat-tile-input input {
+      flex: 1;
+      border: 1px solid rgba(0,133,202,0.15);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .chat-tile-input input::placeholder {
+      color: var(--dim);
+    }
+    .chat-tile-input input:focus {
+      border-color: var(--blue);
+    }
+    .chat-tile-send {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--blue);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .chat-tile-send:hover {
+      background: #0097E0;
+    }
+    .chat-tile-send svg {
+      width: 16px;
+      height: 16px;
+      fill: #FFFFFF;
+    }
+
+    /* Map tile widget (1:1 square) */
+    .map-tile {
+      aspect-ratio: 1 / 1;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+    }
+    .map-tile-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0,133,202,0.06) 0%, rgba(0,180,230,0.03) 100%),
+        repeating-linear-gradient(0deg, transparent, transparent 24px, rgba(0,133,202,0.04) 24px, rgba(0,133,202,0.04) 25px),
+        repeating-linear-gradient(90deg, transparent, transparent 24px, rgba(0,133,202,0.04) 24px, rgba(0,133,202,0.04) 25px);
+      background-color: #F0F7FB;
+    }
+    .map-tile-route {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+    .map-tile-route svg {
+      width: 100%;
+      height: 100%;
+    }
+    .map-tile-marker {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--blue);
+      border: 3px solid #FFFFFF;
+      box-shadow: 0 2px 8px rgba(0,133,202,0.4), 0 0 0 4px rgba(0,133,202,0.15);
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+    .map-tile-marker::after {
+      content: '';
+      position: absolute;
+      inset: 3px;
+      border-radius: 50%;
+      background: #FFFFFF;
+    }
+    .map-tile-origin,
+    .map-tile-dest {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid var(--blue);
+      background: #FFFFFF;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+    .map-tile-label {
+      position: absolute;
+      font-family: 'Azeret Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .map-tile-info {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      z-index: 3;
+    }
+    .map-tile-info-left .mti-label {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 3px;
+    }
+    .map-tile-info-left .mti-value {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text);
+    }
+    .map-tile-info-right {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(8px);
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(0,133,202,0.12);
+    }
+    .map-tile-info-right .mti-temp {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--blue);
+    }
+
     /* ─── BRAND VOICE ────────────────────────────────────────── */
     .voice-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 52px; }
     .voice-card { padding: 34px 26px; }
@@ -579,28 +1365,28 @@
 
   <!-- ─── Nav ──────────────────────────────────────────────── -->
   <nav>
-    <div class="logo-mark lm-blue nav-logo">
-      <span class="ln1">ZERO°</span>
-      <span class="ln2">LOGISTICS</span>
+    <div class="nav-inner">
+      <div class="logo-mark lm-blue nav-logo">
+        <span class="ln1">ZERO°</span>
+        <span class="ln2">LOGISTICS</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#hero">Showcase</a></li>
+        <li><a href="#logo">Logo</a></li>
+        <li><a href="#colors">Colors</a></li>
+        <li><a href="#typography">Typography</a></li>
+        <li><a href="#components">Components</a></li>
+        <li><a href="#voice">Brand Voice</a></li>
+      </ul>
+      <span class="nav-badge">BRAND GUIDELINES · V1.0</span>
     </div>
-    <ul class="nav-links">
-      <li><a href="#logo">Logo</a></li>
-      <li><a href="#colors">Colors</a></li>
-      <li><a href="#typography">Typography</a></li>
-      <li><a href="#components">Components</a></li>
-      <li><a href="#voice">Brand Voice</a></li>
-    </ul>
-    <span class="nav-badge">BRAND GUIDELINES · V1.0</span>
   </nav>
 
-  <!-- ─── Hero ─────────────────────────────────────────────── -->
+  <!-- ─── Hero sequence (sticky glass + scroll steps) ───────── -->
   <section id="hero">
 
-    <!-- Gradient background scene -->
+    <!-- Background scene kept simple / white -->
     <div class="hero-scene"></div>
-    <div class="hero-blob hb1"></div>
-    <div class="hero-blob hb2"></div>
-    <div class="hero-blob hb3"></div>
 
     <div class="hero-inner">
 
@@ -650,6 +1436,41 @@
         />
       </div>
 
+    </div>
+  </section>
+
+  <!-- ─── Fleet showcase (dark mode application) ────────────── -->
+  <section id="fleet-showcase">
+    <div class="fleet-inner">
+      <div class="fleet-content">
+        <p class="fleet-tag">Cold-Chain Fleet</p>
+        <h2 class="fleet-title">Fleet-ready<br/><span>cold capacity.</span></h2>
+        <p class="fleet-desc">Our ISO-certified reefer containers maintain precise temperature corridors from −25°C to +25°C. Real-time monitoring ensures your cargo stays within spec from origin to destination.</p>
+        <div class="fleet-stats">
+          <div class="fleet-stat">
+            <span class="fleet-stat-value">2,400+</span>
+            <span class="fleet-stat-label">Active Containers</span>
+          </div>
+          <div class="fleet-stat">
+            <span class="fleet-stat-value">99.7%</span>
+            <span class="fleet-stat-label">Temp Compliance</span>
+          </div>
+          <div class="fleet-stat">
+            <span class="fleet-stat-value">48</span>
+            <span class="fleet-stat-label">Countries</span>
+          </div>
+        </div>
+      </div>
+      <div class="fleet-image-wrap">
+        <img class="fleet-image" src="assets/reefer-warehouse.png" alt="ZERO° reefer containers in warehouse" />
+        <div class="fleet-image-badge">
+          <div class="fleet-badge-icon">❄</div>
+          <div class="fleet-badge-text">
+            <span class="fleet-badge-value">−20°C Active</span>
+            <span class="fleet-badge-label">Real-time monitoring</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -872,6 +1693,308 @@
           </div>
         </div>
 
+        <!-- Notifications Tile Widget (1:1) -->
+        <div class="glass comp-card" style="padding:0;">
+          <p class="comp-label" style="padding:24px 24px 0;">Notifications Widget</p>
+          <div class="notif-tile" style="margin:16px;">
+            <div class="notif-tile-header">
+              <span class="notif-tile-title">Alerts</span>
+              <span class="notif-tile-badge">3 new</span>
+            </div>
+            <div class="notif-tile-list">
+              <div class="notif-item notif-item--unread">
+                <div class="notif-icon notif-icon--alert">⚠</div>
+                <div class="notif-content">
+                  <div class="notif-text"><strong>Temp excursion</strong> detected on ZL-2026-00851. Corridor breach: −18°C → −14°C.</div>
+                  <div class="notif-meta">2 min ago · Shipment alert</div>
+                </div>
+                <div class="notif-dot"></div>
+              </div>
+              <div class="notif-item notif-item--unread">
+                <div class="notif-icon notif-icon--warn">⏱</div>
+                <div class="notif-content">
+                  <div class="notif-text"><strong>Customs hold</strong> on ZL-2026-00847. Documentation review in progress.</div>
+                  <div class="notif-meta">14 min ago · Customs</div>
+                </div>
+                <div class="notif-dot"></div>
+              </div>
+              <div class="notif-item notif-item--unread">
+                <div class="notif-icon notif-icon--ok">✓</div>
+                <div class="notif-content">
+                  <div class="notif-text"><strong>Delivered</strong> — ZL-2026-00842 arrived at Dubai Port, temp verified.</div>
+                  <div class="notif-meta">1 hr ago · Delivery</div>
+                </div>
+                <div class="notif-dot"></div>
+              </div>
+              <div class="notif-item">
+                <div class="notif-icon notif-icon--info">📍</div>
+                <div class="notif-content">
+                  <div class="notif-text"><strong>Checkpoint scan</strong> — ZL-2026-00847 passed Amsterdam Hub.</div>
+                  <div class="notif-meta">3 hr ago · Transit</div>
+                </div>
+              </div>
+            </div>
+            <div class="notif-tile-footer">
+              <a href="#">View all notifications →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chat Tile Widget (1:1) -->
+        <div class="glass comp-card" style="padding:0;">
+          <p class="comp-label" style="padding:24px 24px 0;">Chat Widget</p>
+          <div class="chat-tile" style="margin:16px;">
+            <div class="chat-tile-header">
+              <div class="chat-tile-header-left">
+                <div class="chat-tile-avatar">ZL</div>
+                <span class="chat-tile-name">ZERO° Support</span>
+              </div>
+              <span class="chat-tile-status">Online</span>
+            </div>
+            <div class="chat-tile-messages">
+              <div class="chat-msg chat-msg--in">
+                <div>Hi! How can I help you with your shipment today?</div>
+                <div class="chat-msg-time">09:41</div>
+              </div>
+              <div class="chat-msg chat-msg--out">
+                <div>Can I get an update on ZL-2026-00847?</div>
+                <div class="chat-msg-time">09:42</div>
+              </div>
+              <div class="chat-msg chat-msg--in">
+                <div>Your shipment is currently at Amsterdam Hub, maintaining −20°C. ETA Dubai: 14h 32m.</div>
+                <div class="chat-msg-time">09:42</div>
+              </div>
+            </div>
+            <div class="chat-tile-input">
+              <input type="text" placeholder="Type a message…" />
+              <button class="chat-tile-send">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map Tile Widget (1:1) -->
+        <div class="glass comp-card" style="padding:0;">
+          <p class="comp-label" style="padding:24px 24px 0;">Map Widget</p>
+          <div class="map-tile" style="margin:16px;">
+            <div class="map-tile-bg"></div>
+            <!-- Stylized route path -->
+            <div class="map-tile-route">
+              <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M30 160 Q60 140, 80 120 T120 80 T170 40" stroke="#0085CA" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6 4" opacity="0.5"/>
+                <path d="M30 160 Q60 140, 80 120 T120 80" stroke="#0085CA" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <!-- Origin marker -->
+            <div class="map-tile-origin" style="left:15%; top:80%;"></div>
+            <span class="map-tile-label" style="left:18%; top:84%;">Oslo</span>
+            <!-- Destination marker -->
+            <div class="map-tile-dest" style="left:85%; top:20%;"></div>
+            <span class="map-tile-label" style="left:70%; top:12%;">Dubai</span>
+            <!-- Current position marker (animated pulse would go here) -->
+            <div class="map-tile-marker" style="left:60%; top:40%;"></div>
+            <!-- Info overlay -->
+            <div class="map-tile-info">
+              <div class="map-tile-info-left">
+                <div class="mti-label">Current</div>
+                <div class="mti-value">Amsterdam Hub</div>
+              </div>
+              <div class="map-tile-info-right">
+                <span class="mti-temp">−20°C</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Shipments List (full-width) ───────────────────────── -->
+  <section class="shipments-list-section">
+    <div class="container">
+      <div class="shipments-list-header">
+        <h2 class="shipments-list-title">Your Shipments</h2>
+        <div class="shipments-list-actions">
+          <div class="shipments-search">
+            <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+            <input type="text" placeholder="Search shipments…" />
+          </div>
+          <button class="shipments-filter">
+            <svg viewBox="0 0 24 24"><path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/></svg>
+            Filter
+          </button>
+          <button class="btn btn-primary">+ New Shipment</button>
+        </div>
+      </div>
+
+      <div class="shipments-table">
+        <div class="shipments-table-head">
+          <div class="shipments-th">Shipment ID</div>
+          <div class="shipments-th">Route</div>
+          <div class="shipments-th">Temperature</div>
+          <div class="shipments-th">Weight</div>
+          <div class="shipments-th">ETA</div>
+          <div class="shipments-th">Status</div>
+          <div class="shipments-th"></div>
+        </div>
+
+        <div class="shipments-row is-selected">
+          <div class="sr-id">ZL-2026-00847</div>
+          <div class="sr-route">
+            <span class="sr-route-from">Oslo, NO</span>
+            <span class="sr-route-arrow">↓</span>
+            <span class="sr-route-to">Dubai, UAE</span>
+          </div>
+          <div>
+            <div class="sr-temp">−20°C</div>
+            <div class="sr-temp-range">Target: −18 to −22°C</div>
+          </div>
+          <div class="sr-weight">2,450 <span class="sr-weight-unit">kg</span></div>
+          <div class="sr-eta">
+            <span class="sr-eta-time">14h 32m</span>
+            <span class="sr-eta-date">Mar 17, 09:00</span>
+          </div>
+          <div class="sr-status">
+            <span class="badge badge-transit"><span class="dot"></span>In Transit</span>
+          </div>
+          <div class="sr-actions">
+            <button class="sr-action-btn" title="Track">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </button>
+            <button class="sr-action-btn" title="Details">
+              <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="shipments-row">
+          <div class="sr-id">ZL-2026-00851</div>
+          <div class="sr-route">
+            <span class="sr-route-from">Rotterdam, NL</span>
+            <span class="sr-route-arrow">↓</span>
+            <span class="sr-route-to">Singapore, SG</span>
+          </div>
+          <div>
+            <div class="sr-temp" style="color:#CC2828;">−14°C</div>
+            <div class="sr-temp-range">Target: −18 to −22°C</div>
+          </div>
+          <div class="sr-weight">4,120 <span class="sr-weight-unit">kg</span></div>
+          <div class="sr-eta">
+            <span class="sr-eta-time">3d 8h</span>
+            <span class="sr-eta-date">Mar 20, 14:30</span>
+          </div>
+          <div class="sr-status">
+            <span class="badge badge-alert"><span class="dot"></span>Temp Alert</span>
+          </div>
+          <div class="sr-actions">
+            <button class="sr-action-btn" title="Track">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </button>
+            <button class="sr-action-btn" title="Details">
+              <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="shipments-row">
+          <div class="sr-id">ZL-2026-00849</div>
+          <div class="sr-route">
+            <span class="sr-route-from">Hamburg, DE</span>
+            <span class="sr-route-arrow">↓</span>
+            <span class="sr-route-to">New York, US</span>
+          </div>
+          <div>
+            <div class="sr-temp">+4°C</div>
+            <div class="sr-temp-range">Target: +2 to +8°C</div>
+          </div>
+          <div class="sr-weight">1,890 <span class="sr-weight-unit">kg</span></div>
+          <div class="sr-eta">
+            <span class="sr-eta-time">5d 2h</span>
+            <span class="sr-eta-date">Mar 22, 06:15</span>
+          </div>
+          <div class="sr-status">
+            <span class="badge badge-warn"><span class="dot"></span>Customs Hold</span>
+          </div>
+          <div class="sr-actions">
+            <button class="sr-action-btn" title="Track">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </button>
+            <button class="sr-action-btn" title="Details">
+              <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="shipments-row">
+          <div class="sr-id">ZL-2026-00842</div>
+          <div class="sr-route">
+            <span class="sr-route-from">Copenhagen, DK</span>
+            <span class="sr-route-arrow">↓</span>
+            <span class="sr-route-to">Dubai, UAE</span>
+          </div>
+          <div>
+            <div class="sr-temp">−21°C</div>
+            <div class="sr-temp-range">Target: −18 to −22°C</div>
+          </div>
+          <div class="sr-weight">3,200 <span class="sr-weight-unit">kg</span></div>
+          <div class="sr-eta">
+            <span class="sr-eta-time">—</span>
+            <span class="sr-eta-date">Arrived Mar 16</span>
+          </div>
+          <div class="sr-status">
+            <span class="badge badge-ok"><span class="dot"></span>Delivered</span>
+          </div>
+          <div class="sr-actions">
+            <button class="sr-action-btn" title="Track">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </button>
+            <button class="sr-action-btn" title="Details">
+              <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="shipments-row">
+          <div class="sr-id">ZL-2026-00838</div>
+          <div class="sr-route">
+            <span class="sr-route-from">Antwerp, BE</span>
+            <span class="sr-route-arrow">↓</span>
+            <span class="sr-route-to">Tokyo, JP</span>
+          </div>
+          <div>
+            <div class="sr-temp">−19°C</div>
+            <div class="sr-temp-range">Target: −18 to −22°C</div>
+          </div>
+          <div class="sr-weight">5,680 <span class="sr-weight-unit">kg</span></div>
+          <div class="sr-eta">
+            <span class="sr-eta-time">6d 14h</span>
+            <span class="sr-eta-date">Mar 23, 22:00</span>
+          </div>
+          <div class="sr-status">
+            <span class="badge badge-transit"><span class="dot"></span>In Transit</span>
+          </div>
+          <div class="sr-actions">
+            <button class="sr-action-btn" title="Track">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </button>
+            <button class="sr-action-btn" title="Details">
+              <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="shipments-table-footer">
+          <span class="shipments-count">Showing 5 of 23 shipments</span>
+          <div class="shipments-pagination">
+            <button class="shipments-page is-active">1</button>
+            <button class="shipments-page">2</button>
+            <button class="shipments-page">3</button>
+            <button class="shipments-page">4</button>
+            <button class="shipments-page">5</button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
