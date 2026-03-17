@@ -33,13 +33,17 @@
 
     /* ─── Reset ──────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
     body {
       background: #FFFFFF;
       color: var(--text);
       font-family: 'Open Sans', sans-serif;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
+      max-width: 100vw;
     }
 
     /* ─── Glass utility (light) ──────────────────────────────── */
@@ -180,6 +184,7 @@
       display: flex;
       align-items: stretch;
       overflow: hidden;
+      max-width: 100vw;
     }
 
     .hero-scene {
@@ -1492,11 +1497,15 @@
       .shipments-list-header { flex-direction: column; align-items: stretch; }
       .shipments-list-title { font-size: 22px; }
       .shipments-search { min-width: 100%; }
-      .shipments-table { overflow-x: auto; }
+      .shipments-table {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        max-width: 100%;
+      }
       .shipments-table-head,
       .shipments-row {
         grid-template-columns: 1fr 1fr 0.8fr 0.6fr;
-        min-width: 500px;
+        min-width: 480px;
         font-size: 13px;
       }
       .shipments-th:nth-child(4),
