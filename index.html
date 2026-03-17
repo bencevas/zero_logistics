@@ -447,6 +447,251 @@
       color: var(--dim);
     }
 
+    /* ─── Scheduling Section ───────────────────────────────────── */
+    #scheduling {
+      position: relative;
+      padding: 120px 0;
+      overflow: hidden;
+      min-height: 600px;
+    }
+    .sched-bg {
+      position: absolute;
+      inset: 0;
+      background: url('assets/fleet-night.png') center center / cover no-repeat;
+      z-index: 0;
+    }
+    .sched-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg,
+        rgba(0,20,40,0.85) 0%,
+        rgba(0,40,70,0.75) 50%,
+        rgba(0,20,40,0.85) 100%
+      );
+      z-index: 1;
+    }
+    .sched-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 48px;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .sched-content {
+      color: #FFFFFF;
+    }
+    .sched-tag {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--glacier);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .sched-tag::before {
+      content: '';
+      width: 22px;
+      height: 1px;
+      background: var(--glacier);
+      flex-shrink: 0;
+    }
+    .sched-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 1.2;
+      letter-spacing: -0.4px;
+      margin-bottom: 20px;
+    }
+    .sched-title span {
+      color: var(--glacier);
+    }
+    .sched-desc {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 32px;
+    }
+    .sched-features {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .sched-feature {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 14px;
+      color: rgba(255,255,255,0.85);
+    }
+    .sched-feature-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(0,180,230,0.15);
+      border: 1px solid rgba(0,180,230,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    
+    /* Scheduling Widget */
+    .sched-widget {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.2);
+    }
+    .sched-widget-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(0,133,202,0.1);
+    }
+    .sched-widget-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--text);
+    }
+    .sched-widget-month {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--blue);
+      background: rgba(0,133,202,0.08);
+      padding: 6px 12px;
+      border-radius: 6px;
+    }
+    .sched-calendar {
+      margin-bottom: 20px;
+    }
+    .sched-cal-header {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+    .sched-cal-day-name {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dim);
+      text-align: center;
+      padding: 8px 0;
+    }
+    .sched-cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+    }
+    .sched-cal-day {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 13px;
+      color: var(--text);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .sched-cal-day:hover {
+      background: rgba(0,133,202,0.08);
+    }
+    .sched-cal-day.is-today {
+      background: var(--blue);
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+    .sched-cal-day.has-pickup {
+      position: relative;
+    }
+    .sched-cal-day.has-pickup::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--glacier);
+    }
+    .sched-cal-day.is-disabled {
+      color: var(--dim);
+      cursor: default;
+    }
+    .sched-cal-day.is-disabled:hover {
+      background: transparent;
+    }
+    .sched-pickups {
+      background: rgba(0,133,202,0.04);
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .sched-pickups-title {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .sched-pickup-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(0,133,202,0.08);
+    }
+    .sched-pickup-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .sched-pickup-time {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--blue);
+      min-width: 52px;
+    }
+    .sched-pickup-info {
+      flex: 1;
+    }
+    .sched-pickup-route {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .sched-pickup-temp {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 10px;
+      color: var(--muted);
+    }
+    .sched-pickup-status {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--glacier);
+    }
+
     /* ─── Buttons ────────────────────────────────────────────── */
     .btn {
       display: inline-flex;
@@ -1487,6 +1732,18 @@
       .fleet-stat-value { font-size: 22px; }
       .fleet-image-wrap { order: -1; }
 
+      /* Scheduling */
+      #scheduling { padding: 60px 0; min-height: auto; }
+      .sched-inner {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+        gap: 40px;
+      }
+      .sched-title { font-size: 28px; }
+      .sched-desc { font-size: 14px; }
+      .sched-widget { padding: 20px; }
+      .sched-cal-day { font-size: 12px; }
+
       /* Sections */
       .s-title { font-size: 28px; }
       .s-desc { font-size: 16px; }
@@ -2057,6 +2314,121 @@
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Scheduling Section ────────────────────────────────── -->
+  <section id="scheduling">
+    <div class="sched-bg"></div>
+    <div class="sched-overlay"></div>
+    <div class="sched-inner">
+      <div class="sched-content">
+        <p class="sched-tag">Dispatch Scheduling</p>
+        <h2 class="sched-title">Plan your<br/><span>cold logistics.</span></h2>
+        <p class="sched-desc">Schedule pickups, coordinate fleet movements, and optimize routes across your entire cold-chain network. Real-time visibility into every scheduled dispatch.</p>
+        <div class="sched-features">
+          <div class="sched-feature">
+            <div class="sched-feature-icon">📅</div>
+            <span>Drag-and-drop pickup scheduling</span>
+          </div>
+          <div class="sched-feature">
+            <div class="sched-feature-icon">🚛</div>
+            <span>Fleet capacity optimization</span>
+          </div>
+          <div class="sched-feature">
+            <div class="sched-feature-icon">🌡️</div>
+            <span>Temperature corridor pre-planning</span>
+          </div>
+          <div class="sched-feature">
+            <div class="sched-feature-icon">📍</div>
+            <span>Multi-stop route builder</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="sched-widget">
+        <div class="sched-widget-header">
+          <span class="sched-widget-title">Pickup Schedule</span>
+          <span class="sched-widget-month">MARCH 2026</span>
+        </div>
+        <div class="sched-calendar">
+          <div class="sched-cal-header">
+            <span class="sched-cal-day-name">Mon</span>
+            <span class="sched-cal-day-name">Tue</span>
+            <span class="sched-cal-day-name">Wed</span>
+            <span class="sched-cal-day-name">Thu</span>
+            <span class="sched-cal-day-name">Fri</span>
+            <span class="sched-cal-day-name">Sat</span>
+            <span class="sched-cal-day-name">Sun</span>
+          </div>
+          <div class="sched-cal-grid">
+            <span class="sched-cal-day is-disabled"></span>
+            <span class="sched-cal-day is-disabled"></span>
+            <span class="sched-cal-day is-disabled"></span>
+            <span class="sched-cal-day is-disabled"></span>
+            <span class="sched-cal-day is-disabled"></span>
+            <span class="sched-cal-day is-disabled"></span>
+            <span class="sched-cal-day is-disabled">1</span>
+            <span class="sched-cal-day is-disabled">2</span>
+            <span class="sched-cal-day is-disabled">3</span>
+            <span class="sched-cal-day is-disabled">4</span>
+            <span class="sched-cal-day is-disabled">5</span>
+            <span class="sched-cal-day is-disabled">6</span>
+            <span class="sched-cal-day is-disabled">7</span>
+            <span class="sched-cal-day is-disabled">8</span>
+            <span class="sched-cal-day is-disabled">9</span>
+            <span class="sched-cal-day is-disabled">10</span>
+            <span class="sched-cal-day is-disabled">11</span>
+            <span class="sched-cal-day is-disabled">12</span>
+            <span class="sched-cal-day is-disabled">13</span>
+            <span class="sched-cal-day is-disabled">14</span>
+            <span class="sched-cal-day is-disabled">15</span>
+            <span class="sched-cal-day is-disabled">16</span>
+            <span class="sched-cal-day is-today has-pickup">17</span>
+            <span class="sched-cal-day has-pickup">18</span>
+            <span class="sched-cal-day has-pickup">19</span>
+            <span class="sched-cal-day">20</span>
+            <span class="sched-cal-day has-pickup">21</span>
+            <span class="sched-cal-day">22</span>
+            <span class="sched-cal-day">23</span>
+            <span class="sched-cal-day has-pickup">24</span>
+            <span class="sched-cal-day">25</span>
+            <span class="sched-cal-day has-pickup">26</span>
+            <span class="sched-cal-day">27</span>
+            <span class="sched-cal-day">28</span>
+            <span class="sched-cal-day">29</span>
+            <span class="sched-cal-day">30</span>
+            <span class="sched-cal-day">31</span>
+          </div>
+        </div>
+        <div class="sched-pickups">
+          <p class="sched-pickups-title">Today's Pickups</p>
+          <div class="sched-pickup-item">
+            <span class="sched-pickup-time">08:30</span>
+            <div class="sched-pickup-info">
+              <div class="sched-pickup-route">Oslo → Dubai</div>
+              <div class="sched-pickup-temp">−20°C corridor</div>
+            </div>
+            <div class="sched-pickup-status"></div>
+          </div>
+          <div class="sched-pickup-item">
+            <span class="sched-pickup-time">11:00</span>
+            <div class="sched-pickup-info">
+              <div class="sched-pickup-route">Rotterdam → Singapore</div>
+              <div class="sched-pickup-temp">−18°C corridor</div>
+            </div>
+            <div class="sched-pickup-status"></div>
+          </div>
+          <div class="sched-pickup-item">
+            <span class="sched-pickup-time">14:45</span>
+            <div class="sched-pickup-info">
+              <div class="sched-pickup-route">Hamburg → New York</div>
+              <div class="sched-pickup-temp">+4°C corridor</div>
+            </div>
+            <div class="sched-pickup-status"></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
