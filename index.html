@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ZERO° Logistics — Brand Guidelines</title>
+  <title>ZERO° LOGISTICS — Brand Guidelines</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Azeret+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -146,14 +146,14 @@
       font-weight: 700;
       font-size: 52px;
       display: block;
-      letter-spacing: -1px;
+      letter-spacing: -0.019em; /* -1px at 52px, scales proportionally */
     }
     .logo-mark .ln2 {
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
       font-size: 32px;
       display: block;
-      letter-spacing: 5px;
+      letter-spacing: 0.156em; /* 5px at 32px, scales proportionally */
     }
 
     /* Color variants */
@@ -182,8 +182,9 @@
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
-    .nav-logo .ln1 { font-size: 20px; letter-spacing: -0.5px; }
-    .nav-logo .ln2 { font-size: 12px; letter-spacing: 3px; }
+    /* Nav: 0.38× the canonical pair → 19.8/12.2, rounded */
+    .nav-logo .ln1 { font-size: 20px; }
+    .nav-logo .ln2 { font-size: 12.3px; }
 
     .nav-links {
       display: flex;
@@ -236,8 +237,9 @@
     .hero-logo {
       margin-bottom: 48px;
     }
-    .hero-logo .ln1 { font-size: 108px; letter-spacing: -3px; }
-    .hero-logo .ln2 { font-size: 68px;  letter-spacing: 8px; }
+    /* Hero: exactly 2× the canonical 52/32 pair */
+    .hero-logo .ln1 { font-size: 104px; }
+    .hero-logo .ln2 { font-size: 64px; }
 
     .hero-tagline {
       font-family: 'Open Sans', sans-serif;
@@ -302,8 +304,7 @@
       -webkit-backdrop-filter: blur(22px);
       border: 1px solid rgba(255,255,255,0.16);
     }
-    .cell-glass .logo-mark .ln1 { font-size: 72px; }
-    .cell-glass .logo-mark .ln2 { font-size: 44px; }
+    /* Cell-glass uses canonical 52/32 — no override needed */
 
     .clear-space-note {
       padding: 32px 40px;
@@ -658,8 +659,9 @@
       border-top: 1px solid var(--glass-border);
       text-align: center;
     }
-    .footer-logo .ln1 { font-size: 32px; }
-    .footer-logo .ln2 { font-size: 20px; letter-spacing: 4px; }
+    /* Footer: 0.75× the canonical pair = 39/24 */
+    .footer-logo .ln1 { font-size: 39px; }
+    .footer-logo .ln2 { font-size: 24px; }
     .footer-meta {
       font-family: 'Azeret Mono', monospace;
       font-size: 11px;
@@ -680,7 +682,7 @@
   <nav>
     <div class="logo-mark lm-blue nav-logo">
       <span class="ln1">ZERO°</span>
-      <span class="ln2">Logistics</span>
+      <span class="ln2">LOGISTICS</span>
     </div>
     <ul class="nav-links">
       <li><a href="#logo">Logo</a></li>
@@ -695,10 +697,10 @@
   <!-- ─── Hero ─────────────────────────────────────────────── -->
   <section id="hero">
     <div class="glass-strong hero-glass">
-      <p class="hero-eyebrow">ZERO° Logistics · Brand Identity System · 2026</p>
+      <p class="hero-eyebrow">ZERO° LOGISTICS · Brand Identity System · 2026</p>
       <div class="hero-logo logo-mark lm-blue">
         <span class="ln1">ZERO°</span>
-        <span class="ln2">Logistics</span>
+        <span class="ln2">LOGISTICS</span>
       </div>
       <p class="hero-tagline">Precision cold-chain delivery. Absolute temperature control.</p>
       <div class="hero-divider"></div>
@@ -711,7 +713,7 @@
     <div class="container">
       <p class="s-tag">01 — The Logo</p>
       <h2 class="s-title">Logo System</h2>
-      <p class="s-desc">The ZERO° logotype is set exclusively in Montserrat Bold. "ZERO°" renders at 52pt and "Logistics" at 32pt. The degree mark (°) is structurally part of the name — it references absolute zero and the precision behind every cold-chain movement.</p>
+      <p class="s-desc">The ZERO° logotype is set exclusively in Montserrat Bold. "ZERO°" renders at 52pt and "LOGISTICS" at 32pt. The degree mark (°) is structurally part of the name — it references absolute zero and the precision behind every cold-chain movement.</p>
 
       <div class="logo-grid">
 
@@ -719,7 +721,7 @@
         <div class="logo-cell cell-dark glass">
           <div class="logo-mark lm-blue">
             <span class="ln1">ZERO°</span>
-            <span class="ln2">Logistics</span>
+            <span class="ln2">LOGISTICS</span>
           </div>
           <span class="cell-label">Primary · Blue on Dark</span>
         </div>
@@ -728,7 +730,7 @@
         <div class="logo-cell cell-blue">
           <div class="logo-mark lm-white">
             <span class="ln1">ZERO°</span>
-            <span class="ln2">Logistics</span>
+            <span class="ln2">LOGISTICS</span>
           </div>
           <span class="cell-label" style="color:rgba(255,255,255,0.5);">Reversed · White on Blue</span>
         </div>
@@ -737,7 +739,7 @@
         <div class="logo-cell cell-light">
           <div class="logo-mark lm-blue">
             <span class="ln1">ZERO°</span>
-            <span class="ln2">Logistics</span>
+            <span class="ln2">LOGISTICS</span>
           </div>
           <span class="cell-label">Standard · Blue on White</span>
         </div>
@@ -746,7 +748,7 @@
         <div class="logo-cell cell-light">
           <div class="logo-mark lm-dark">
             <span class="ln1">ZERO°</span>
-            <span class="ln2">Logistics</span>
+            <span class="ln2">LOGISTICS</span>
           </div>
           <span class="cell-label">Monochrome · Black on White</span>
         </div>
@@ -755,7 +757,7 @@
         <div class="logo-cell cell-grad">
           <div class="logo-mark lm-grad">
             <span class="ln1">ZERO°</span>
-            <span class="ln2">Logistics</span>
+            <span class="ln2">LOGISTICS</span>
           </div>
           <span class="cell-label">Gradient Accent · For premium contexts</span>
         </div>
@@ -764,7 +766,7 @@
         <div class="logo-cell cell-glass glass">
           <div class="logo-mark lm-blue">
             <span class="ln1">ZERO°</span>
-            <span class="ln2">Logistics</span>
+            <span class="ln2">LOGISTICS</span>
           </div>
           <span class="cell-label">Signature Glass · Digital use on dark/gradient backgrounds</span>
         </div>
@@ -900,7 +902,7 @@
         <div class="glass type-card">
           <p class="type-tag">Open Sans · Body Copy, UI Text, Descriptions</p>
           <p class="specimen-os">
-            ZERO° Logistics delivers end-to-end cold-chain solutions across global supply networks. From pharmaceutical biologics to premium food distribution, we maintain precise temperature corridors — never compromising on quality or compliance at any point in the journey.
+            ZERO° LOGISTICS delivers end-to-end cold-chain solutions across global supply networks. From pharmaceutical biologics to premium food distribution, we maintain precise temperature corridors — never compromising on quality or compliance at any point in the journey.
           </p>
           <div style="display:flex; gap:36px; flex-wrap:wrap; margin-top:24px; padding-top:22px; border-top:1px solid var(--glass-border);">
             <span style="font-family:'Open Sans'; font-size:13.5px; font-weight:300; color:rgba(255,255,255,0.45);">Light 300 — Captions, supporting text</span>
@@ -1071,7 +1073,7 @@
           </div>
           <ul class="rules-list">
             <li>Stretch, compress, rotate, or distort the logo in any dimension</li>
-            <li>Separate "ZERO°" from "Logistics" — they are a single lockup</li>
+            <li>Separate "ZERO°" from "LOGISTICS" — they are a single lockup</li>
             <li>Apply unauthorized colors, tints, or gradients to the logotype</li>
             <li>Place the logo on low-contrast, busy, or photographic backgrounds</li>
             <li>Add drop shadows, outlines, bevels, or decorative effects to the type</li>
@@ -1088,7 +1090,7 @@
     <div class="container">
       <div class="logo-mark lm-blue footer-logo" style="display:inline-block; text-align:center;">
         <span class="ln1">ZERO°</span>
-        <span class="ln2">Logistics</span>
+        <span class="ln2">LOGISTICS</span>
       </div>
       <p class="footer-meta">BRAND GUIDELINES · VERSION 1.0 · MARCH 2026 · CONFIDENTIAL &amp; PROPRIETARY</p>
     </div>
