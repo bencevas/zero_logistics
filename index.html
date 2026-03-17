@@ -1422,16 +1422,20 @@
         min-height: auto;
       }
       .hero-left {
-        padding: 0 20px 40px 20px;
+        padding: 0 16px 40px 16px;
         width: 100%;
-        margin-top: -80px;
+        margin-top: -100px;
         z-index: 3;
       }
       .hero-pane {
         padding: 28px 24px;
         max-width: 100%;
         border-radius: 20px;
-        box-shadow: 0 -8px 40px rgba(0,133,202,0.12), 0 4px 20px rgba(0,0,0,0.08);
+        background: rgba(255,255,255,0.72);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border: 1px solid rgba(255,255,255,0.85);
+        box-shadow: 0 -8px 40px rgba(0,133,202,0.15), 0 8px 32px rgba(0,0,0,0.10);
       }
       .hero-pane .logo-mark .ln1 { font-size: 30px; }
       .hero-pane .logo-mark .ln2 { font-size: 18px; }
@@ -1442,13 +1446,19 @@
         gap: 12px;
         padding: 16px;
         margin-bottom: 24px;
+        background: rgba(255,255,255,0.45);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255,255,255,0.70);
+        border-radius: 12px;
       }
       .hero-stat { text-align: center; }
       .h-stat-val { font-size: 18px; }
       .h-stat-lbl { font-size: 8px; letter-spacing: 0.08em; }
       .h-stat-div { display: none; }
       .hero-right {
-        width: 100%;
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
         padding: 0;
         justify-content: center;
         overflow: hidden;
@@ -1459,8 +1469,8 @@
         margin-left: 0;
         object-fit: cover;
         object-position: center center;
-        height: 45vh;
-        min-height: 280px;
+        height: 55vh;
+        min-height: 320px;
       }
 
       /* Fleet */
@@ -1532,8 +1542,8 @@
       .nav-links { gap: 16px; }
       .nav-links a { font-size: 10px; }
       .hero-inner { padding: 52px 0 0 0; }
-      .hero-left { padding: 0 16px 32px 16px; margin-top: -60px; }
-      .hero-pane { padding: 24px 20px; }
+      .hero-left { padding: 0 12px 32px 12px; margin-top: -80px; }
+      .hero-pane { padding: 24px 18px; }
       .hero-pane .logo-mark .ln1 { font-size: 24px; }
       .hero-pane .logo-mark .ln2 { font-size: 15px; }
       .hero-tagline { font-size: 14px; margin-bottom: 20px; }
@@ -1541,8 +1551,8 @@
       .h-stat-lbl { font-size: 7px; }
       .hero-stats { padding: 12px; margin-bottom: 20px; }
       .hero-container-img {
-        height: 40vh;
-        min-height: 240px;
+        height: 50vh;
+        min-height: 280px;
       }
       .hero-tagline { font-size: 15px; }
       .hero-stat-value { font-size: 18px; }
