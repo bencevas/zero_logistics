@@ -169,43 +169,13 @@
       overflow: hidden;
     }
 
-    /* Left half: blue-to-white gradient scene */
     .hero-scene {
       position: absolute;
       inset: 0;
-      background: linear-gradient(108deg,
-        #5BBDE0 0%,
-        #84CEE9 15%,
-        #ADE0F5 28%,
-        #CBECf8 40%,
-        #E1F4FB 52%,
-        #F2FAFD 62%,
-        #FAFCFE 72%,
-        #FFFFFF 82%
-      );
+      background: #FFFFFF;
     }
 
-    /* Blue atmospheric blobs for the glass to refract */
-    .hero-blob {
-      position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
-    }
-    .hb1 {
-      width: 560px; height: 560px;
-      background: radial-gradient(circle, rgba(0,133,202,0.28) 0%, transparent 68%);
-      top: -120px; left: -80px;
-    }
-    .hb2 {
-      width: 340px; height: 340px;
-      background: radial-gradient(circle, rgba(0,180,230,0.22) 0%, transparent 70%);
-      bottom: 20px; left: 160px;
-    }
-    .hb3 {
-      width: 200px; height: 200px;
-      background: radial-gradient(circle, rgba(0,133,202,0.15) 0%, transparent 70%);
-      top: 40%; left: 38%;
-    }
+    .hero-blob { display: none; }
 
     .hero-inner {
       position: relative;
