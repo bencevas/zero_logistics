@@ -95,7 +95,7 @@
       color: var(--text);
     }
     .s-desc {
-      font-size: 16px;
+      font-size: 18px;
       line-height: 1.75;
       color: var(--muted);
       max-width: 580px;
@@ -132,7 +132,7 @@
       position: fixed;
       inset: 0 0 auto 0;
       z-index: 200;
-      padding: 16px 48px;
+      padding: 24px 48px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -142,20 +142,27 @@
       border-bottom: 1px solid rgba(0,133,202,0.08);
       box-shadow: 0 1px 0 rgba(0,0,0,0.04);
     }
-    .nav-logo .ln1 { font-size: 20px; }
-    .nav-logo .ln2 { font-size: 12.3px; }
-    .nav-links { display: flex; gap: 30px; list-style: none; }
+    .nav-logo .ln1,
+    .nav-logo .ln2 {
+      font-family: 'Azeret Mono', monospace;
+    }
+    .nav-logo .ln1 { font-size: 26px; font-weight: 600; }
+    .nav-logo .ln2 { font-size: 16px; font-weight: 500; }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
     .nav-links a {
-      font-family: 'Open Sans', sans-serif;
-      font-size: 13px;
+      font-family: 'Azeret Mono', monospace;
+      font-size: 14px;
+      font-weight: 500;
       color: var(--muted);
       text-decoration: none;
       transition: color 0.2s;
+      letter-spacing: 0.04em;
     }
     .nav-links a:hover { color: var(--blue); }
     .nav-badge {
       font-family: 'Azeret Mono', monospace;
-      font-size: 10px;
+      font-size: 12px;
+      font-weight: 500;
       color: var(--dim);
       letter-spacing: 0.15em;
     }
@@ -181,7 +188,7 @@
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1.1fr;
       width: 100%;
       min-height: 100vh;
       padding-top: 72px;
@@ -222,7 +229,7 @@
     .hero-tagline {
       font-family: 'Open Sans', sans-serif;
       font-weight: 400;
-      font-size: 16px;
+      font-size: 18px;
       line-height: 1.7;
       color: rgba(0,0,0,0.58);
       margin-bottom: 36px;
@@ -270,15 +277,10 @@
 
     .hero-container-img {
       width: 100%;
-      max-height: 72vh;
+      height: 50vh;
+      min-height: 380px;
       object-fit: contain;
-      filter: drop-shadow(0 24px 56px rgba(0,133,202,0.20)) drop-shadow(0 4px 12px rgba(0,0,0,0.08));
-      animation: float-img 6s ease-in-out infinite;
-    }
-
-    @keyframes float-img {
-      0%, 100% { transform: translateY(0); }
-      50%       { transform: translateY(-10px); }
+      object-position: center center;
     }
 
     /* ─── Buttons ────────────────────────────────────────────── */
@@ -408,7 +410,7 @@
       padding-top: 2px;
     }
     .cn-text {
-      font-size: 14px;
+      font-size: 16px;
       line-height: 1.75;
       color: var(--muted);
     }
@@ -456,13 +458,13 @@
     .specimen-os {
       font-family: 'Open Sans', sans-serif;
       font-weight: 400;
-      font-size: 19px;
+      font-size: 21px;
       line-height: 1.8;
       color: var(--muted);
     }
     .specimen-az {
       font-family: 'Azeret Mono', monospace;
-      font-size: 14px;
+      font-size: 15px;
       line-height: 2;
       color: var(--muted);
     }
@@ -515,7 +517,7 @@
     .stat-block { padding: 32px; }
     .stat-lbl { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--dim); margin-bottom: 10px; }
     .stat-val { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 42px; color: var(--blue); line-height: 1; margin-bottom: 6px; }
-    .stat-sub { font-size: 13px; color: var(--muted); }
+    .stat-sub { font-size: 15px; color: var(--muted); }
 
     /* Tracking card */
     .track-card { grid-column: 1 / -1; padding: 32px 36px; }
@@ -534,7 +536,7 @@
     .voice-card { padding: 34px 26px; }
     .v-icon { font-size: 26px; margin-bottom: 14px; display: block; }
     .v-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; margin-bottom: 10px; }
-    .v-desc { font-size: 13px; line-height: 1.7; color: var(--muted); }
+    .v-desc { font-size: 15px; line-height: 1.7; color: var(--muted); }
 
     /* ─── DO & DON'T ─────────────────────────────────────────── */
     .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 52px; }
@@ -550,7 +552,7 @@
     .r-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 17px; }
     .rules-list { list-style: none; display: flex; flex-direction: column; gap: 13px; }
     .rules-list li {
-      font-size: 13.5px; line-height: 1.65; color: var(--muted);
+      font-size: 15px; line-height: 1.65; color: var(--muted);
       display: flex; align-items: flex-start; gap: 10px;
     }
     .rules-list li::before { content: '–'; color: var(--dim); flex-shrink: 0; }
@@ -780,9 +782,9 @@
           <p class="type-tag">Open Sans · Body Copy, UI Text, Descriptions</p>
           <p class="specimen-os">ZERO° LOGISTICS delivers end-to-end cold-chain solutions across global supply networks. From pharmaceutical biologics to premium food distribution, we maintain precise temperature corridors — never compromising on quality or compliance.</p>
           <div style="display:flex;gap:36px;flex-wrap:wrap;margin-top:24px;padding-top:22px;border-top:1px solid rgba(0,133,202,0.08);">
-            <span style="font-family:'Open Sans';font-size:13.5px;font-weight:300;color:rgba(0,0,0,0.38);">Light 300 — Captions</span>
-            <span style="font-family:'Open Sans';font-size:13.5px;font-weight:400;color:rgba(0,0,0,0.55);">Regular 400 — Body</span>
-            <span style="font-family:'Open Sans';font-size:13.5px;font-weight:600;color:rgba(0,0,0,0.75);">SemiBold 600 — UI labels</span>
+            <span style="font-family:'Open Sans';font-size:15px;font-weight:300;color:rgba(0,0,0,0.38);">Light 300 — Captions</span>
+            <span style="font-family:'Open Sans';font-size:15px;font-weight:400;color:rgba(0,0,0,0.55);">Regular 400 — Body</span>
+            <span style="font-family:'Open Sans';font-size:15px;font-weight:600;color:rgba(0,0,0,0.75);">SemiBold 600 — UI labels</span>
           </div>
         </div>
 
