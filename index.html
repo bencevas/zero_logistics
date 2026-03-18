@@ -1566,6 +1566,150 @@
       color: var(--blue);
     }
 
+    /* Temperature Log Widget (1:1) */
+    .temp-log-tile {
+      aspect-ratio: 1 / 1;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      background: #F0F7FB;
+    }
+    .temp-log-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0,133,202,0.04) 0%, rgba(0,180,230,0.02) 100%);
+    }
+    .temp-log-alert-zone {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 20%;
+      background: linear-gradient(180deg, rgba(239,68,68,0.12) 0%, rgba(239,68,68,0.03) 100%);
+      border-bottom: 1px dashed rgba(239,68,68,0.3);
+    }
+    .temp-log-alert-label {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      font-family: 'Azeret Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #EF4444;
+      opacity: 0.7;
+    }
+    .temp-log-grid {
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(0deg, transparent, transparent 19.5%, rgba(0,133,202,0.06) 19.5%, rgba(0,133,202,0.06) 20%),
+        repeating-linear-gradient(90deg, transparent, transparent 16.5%, rgba(0,133,202,0.04) 16.5%, rgba(0,133,202,0.04) 16.66%);
+    }
+    .temp-log-y-axis {
+      position: absolute;
+      left: 8px;
+      top: 15%;
+      bottom: 20%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .temp-log-y-label {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 8px;
+      color: var(--dim);
+    }
+    .temp-log-x-axis {
+      position: absolute;
+      bottom: 8px;
+      left: 15%;
+      right: 10%;
+      display: flex;
+      justify-content: space-between;
+    }
+    .temp-log-x-label {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 8px;
+      color: var(--dim);
+    }
+    .temp-log-chart {
+      position: absolute;
+      top: 20%;
+      left: 15%;
+      right: 10%;
+      bottom: 20%;
+    }
+    .temp-log-chart svg {
+      width: 100%;
+      height: 100%;
+    }
+    .temp-log-marker {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--blue);
+      border: 3px solid #FFFFFF;
+      box-shadow: 0 2px 8px rgba(0,133,202,0.4), 0 0 0 4px rgba(0,133,202,0.15);
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+    .temp-log-marker::after {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      background: #FFFFFF;
+      border-radius: 50%;
+    }
+    .temp-log-info {
+      position: absolute;
+      bottom: 28px;
+      left: 16px;
+      right: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      z-index: 3;
+    }
+    .temp-log-info-left .tli-label {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 3px;
+    }
+    .temp-log-info-left .tli-value {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text);
+    }
+    .temp-log-info-right {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(8px);
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(0,133,202,0.12);
+    }
+    .temp-log-info-right .tli-temp {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--blue);
+    }
+    .temp-log-info-right .tli-status {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #10B981;
+    }
+
     /* ─── Dashboard Widgets ─────────────────────────────────── */
     .dash-widget {
       border-radius: 16px;
@@ -2785,6 +2929,67 @@
                   <div class="dash-chart-bar dash-chart-bar--secondary" style="height:22px;"></div>
                 </div>
                 <span class="dash-chart-bar-label">Jun</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Temperature Log Widget (1:1) -->
+        <div class="glass comp-card" style="padding:0;">
+          <p class="comp-label" style="padding:24px 24px 0;">Temperature Log</p>
+          <div class="temp-log-tile" style="margin:16px;">
+            <div class="temp-log-bg"></div>
+            <!-- Alert zone (above 4°C) -->
+            <div class="temp-log-alert-zone">
+              <span class="temp-log-alert-label">Alert Zone</span>
+            </div>
+            <!-- Grid lines -->
+            <div class="temp-log-grid"></div>
+            <!-- Y-axis labels -->
+            <div class="temp-log-y-axis">
+              <span class="temp-log-y-label">6°C</span>
+              <span class="temp-log-y-label">4°C</span>
+              <span class="temp-log-y-label">2°C</span>
+              <span class="temp-log-y-label">0°C</span>
+              <span class="temp-log-y-label">−2°C</span>
+            </div>
+            <!-- X-axis labels -->
+            <div class="temp-log-x-axis">
+              <span class="temp-log-x-label">00:00</span>
+              <span class="temp-log-x-label">04:00</span>
+              <span class="temp-log-x-label">08:00</span>
+              <span class="temp-log-x-label">12:00</span>
+              <span class="temp-log-x-label">16:00</span>
+              <span class="temp-log-x-label">Now</span>
+            </div>
+            <!-- Temperature curve -->
+            <div class="temp-log-chart">
+              <svg viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <!-- Fill under curve -->
+                <path d="M0 50 Q20 48, 35 52 T70 45 T100 55 T130 40 T160 48 T200 42 L200 100 L0 100 Z" fill="url(#tempGradient)" opacity="0.3"/>
+                <!-- Main curve line -->
+                <path d="M0 50 Q20 48, 35 52 T70 45 T100 55 T130 40 T160 48 T200 42" stroke="#0085CA" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                <!-- Alert excursion spike -->
+                <path d="M100 55 Q108 35, 115 18 T130 40" stroke="#EF4444" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.8"/>
+                <defs>
+                  <linearGradient id="tempGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#0085CA" stop-opacity="0.4"/>
+                    <stop offset="100%" stop-color="#0085CA" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <!-- Current position marker -->
+              <div class="temp-log-marker" style="right: 0; top: 42%;"></div>
+            </div>
+            <!-- Info overlay -->
+            <div class="temp-log-info">
+              <div class="temp-log-info-left">
+                <div class="tli-label">Shipment</div>
+                <div class="tli-value">ZL-2026-00847</div>
+              </div>
+              <div class="temp-log-info-right">
+                <div class="tli-status"></div>
+                <span class="tli-temp">+2.4°C</span>
               </div>
             </div>
           </div>
