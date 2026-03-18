@@ -1,0 +1,611 @@
+/**
+ * ZERO° LOGISTICS — Design System
+ * ================================
+ * A modern cold-chain logistics UI kit featuring glassmorphism,
+ * clean typography, and an icy color palette.
+ * 
+ * Usage: Import this file into your project and use the CSS variables,
+ * utility classes, and component patterns documented below.
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   1. DESIGN TOKENS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ─── Color Palette ─────────────────────────────────────────────────────── */
+  
+  /* Primary */
+  --zero-blue:       #0085CA;    /* Main brand color */
+  --zero-glacier:    #00B4E6;    /* Lighter accent, gradients */
+  --zero-deep:       #004E7C;    /* Darker blue for contrast */
+  
+  /* Neutrals */
+  --zero-carbon:     #0D0D0D;    /* Near-black for text */
+  --zero-white:      #FFFFFF;    /* Pure white */
+  --zero-ice:        #F0F7FB;    /* Light blue-tinted background */
+  
+  /* Text Colors */
+  --zero-text:       #0D0D0D;              /* Primary text */
+  --zero-muted:      rgba(0,0,0,0.52);     /* Secondary text */
+  --zero-dim:        rgba(0,0,0,0.30);     /* Tertiary/labels */
+  
+  /* Status Colors */
+  --zero-success:    #10B981;    /* Green - in range, success */
+  --zero-warning:    #F59E0B;    /* Amber - attention needed */
+  --zero-danger:     #EF4444;    /* Red - alerts, failures */
+  
+  /* ─── Glassmorphism ─────────────────────────────────────────────────────── */
+  
+  /* Standard glass (on light backgrounds) */
+  --glass-bg:        rgba(255,255,255,0.62);
+  --glass-border:    rgba(255,255,255,0.88);
+  --glass-blur:      20px;
+  --glass-shadow:    0 8px 32px rgba(0,133,202,0.10), 0 2px 8px rgba(0,0,0,0.05);
+  
+  /* Hero glass (more transparent) */
+  --hero-glass-bg:     rgba(255,255,255,0.42);
+  --hero-glass-border: rgba(255,255,255,0.90);
+  --hero-glass-shadow: 0 24px 80px rgba(0,133,202,0.18), 
+                       0 4px 20px rgba(0,0,0,0.08), 
+                       inset 0 1px 0 rgba(255,255,255,0.95);
+  
+  /* Dark mode glass (on dark/image backgrounds) */
+  --glass-dark-bg:     rgba(255,255,255,0.05);
+  --glass-dark-border: rgba(255,255,255,0.12);
+  --glass-dark-blur:   20px;
+  
+  /* ─── Typography ────────────────────────────────────────────────────────── */
+  
+  /* Font Families */
+  --font-heading:    'Montserrat', sans-serif;   /* Headings, logo, numbers */
+  --font-body:       'Open Sans', sans-serif;     /* Body text, paragraphs */
+  --font-mono:       'Azeret Mono', monospace;    /* Labels, technical data */
+  
+  /* Font Sizes */
+  --text-xs:    10px;
+  --text-sm:    12px;
+  --text-base:  14px;
+  --text-md:    16px;
+  --text-lg:    18px;
+  --text-xl:    24px;
+  --text-2xl:   32px;
+  --text-3xl:   40px;
+  --text-4xl:   52px;
+  
+  /* ─── Spacing ───────────────────────────────────────────────────────────── */
+  
+  --space-xs:   4px;
+  --space-sm:   8px;
+  --space-md:   16px;
+  --space-lg:   24px;
+  --space-xl:   32px;
+  --space-2xl:  48px;
+  --space-3xl:  64px;
+  --space-4xl:  100px;
+  
+  /* ─── Border Radius ─────────────────────────────────────────────────────── */
+  
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   16px;
+  --radius-xl:   20px;
+  --radius-full: 9999px;
+  
+  /* ─── Transitions ───────────────────────────────────────────────────────── */
+  
+  --transition-fast:   0.15s ease;
+  --transition-base:   0.2s ease;
+  --transition-slow:   0.3s ease;
+  
+  /* ─── Layout ────────────────────────────────────────────────────────────── */
+  
+  --container-max:     1160px;
+  --container-padding: 48px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   2. BASE STYLES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--zero-white);
+  color: var(--zero-text);
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   3. TYPOGRAPHY
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Headings - Montserrat Bold */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  color: var(--zero-text);
+}
+
+h1 { font-size: var(--text-4xl); }
+h2 { font-size: var(--text-3xl); }
+h3 { font-size: var(--text-2xl); }
+h4 { font-size: var(--text-xl); }
+
+/* Body text - Open Sans */
+p {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  line-height: 1.75;
+  color: var(--zero-muted);
+}
+
+/* Labels/Technical - Azeret Mono */
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--zero-dim);
+}
+
+/* Large numbers - Montserrat Bold */
+.stat-number {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--text-3xl);
+  color: var(--zero-text);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   4. LOGO
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/**
+ * Logo Mark
+ * Usage: 
+ * <div class="logo-mark lm-blue">
+ *   <span class="ln1">ZERO°</span>
+ *   <span class="ln2">LOGISTICS</span>
+ * </div>
+ * 
+ * Variants: .lm-blue, .lm-white, .lm-dark, .lm-grad
+ */
+
+.logo-mark { 
+  display: inline-block; 
+  text-align: center; 
+  line-height: 1.05; 
+}
+
+.logo-mark .ln1 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 52px;
+  display: block;
+  letter-spacing: 0;
+}
+
+.logo-mark .ln2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 32px;
+  display: block;
+  letter-spacing: 0;
+}
+
+/* Logo color variants */
+.lm-blue  .ln1, .lm-blue  .ln2 { color: var(--zero-blue); }
+.lm-white .ln1, .lm-white .ln2 { color: var(--zero-white); }
+.lm-dark  .ln1, .lm-dark  .ln2 { color: var(--zero-carbon); }
+.lm-grad  .ln1, .lm-grad  .ln2 {
+  background: linear-gradient(135deg, var(--zero-blue) 0%, var(--zero-glacier) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Scaled logo (for nav, smaller contexts) */
+.logo-mark--sm .ln1 { font-size: 26px; }
+.logo-mark--sm .ln2 { font-size: 16px; }
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   5. GLASS COMPONENTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/**
+ * Standard Glass Panel
+ * Use on light backgrounds
+ */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glass-shadow);
+}
+
+/**
+ * Dark Glass Panel
+ * Use on dark backgrounds or over images
+ */
+.glass-dark {
+  background: var(--glass-dark-bg);
+  backdrop-filter: blur(var(--glass-dark-blur));
+  -webkit-backdrop-filter: blur(var(--glass-dark-blur));
+  border: 1px solid var(--glass-dark-border);
+  border-radius: var(--radius-lg);
+}
+
+/**
+ * Hero Glass Panel
+ * More transparent, for hero sections
+ */
+.glass-hero {
+  background: var(--hero-glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--hero-glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--hero-glass-shadow);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   6. BUTTONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/**
+ * Primary Button
+ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: 14px 32px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--text-base);
+  text-decoration: none;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.btn-primary {
+  background: var(--zero-blue);
+  color: var(--zero-white);
+}
+
+.btn-primary:hover {
+  background: var(--zero-deep);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,133,202,0.3);
+}
+
+/**
+ * Ghost Button (outline)
+ */
+.btn-ghost {
+  background: transparent;
+  color: var(--zero-blue);
+  border: 1px solid rgba(0,133,202,0.3);
+}
+
+.btn-ghost:hover {
+  background: rgba(0,133,202,0.08);
+  border-color: var(--zero-blue);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   7. STATUS BADGES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/**
+ * Status Badge
+ * Usage:
+ * <div class="status-badge status-badge--success">
+ *   <span class="status-dot"></span>
+ *   <span>In Transit</span>
+ * </div>
+ */
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0,133,202,0.12);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* Status variants */
+.status-badge--primary { color: var(--zero-blue); }
+.status-badge--primary .status-dot { background: var(--zero-blue); }
+
+.status-badge--success { color: var(--zero-success); }
+.status-badge--success .status-dot { background: var(--zero-success); }
+
+.status-badge--warning { color: var(--zero-warning); }
+.status-badge--warning .status-dot { background: var(--zero-warning); }
+
+.status-badge--danger { color: var(--zero-danger); }
+.status-badge--danger .status-dot { background: var(--zero-danger); }
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   8. CARDS & TILES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/**
+ * Widget Card (1:1 aspect ratio)
+ */
+.widget-tile {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+}
+
+/**
+ * Widget Background (icy grid pattern)
+ */
+.widget-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0,133,202,0.06) 0%, rgba(0,180,230,0.03) 100%),
+    repeating-linear-gradient(0deg, transparent, transparent 24px, rgba(0,133,202,0.04) 24px, rgba(0,133,202,0.04) 25px),
+    repeating-linear-gradient(90deg, transparent, transparent 24px, rgba(0,133,202,0.04) 24px, rgba(0,133,202,0.04) 25px);
+  background-color: var(--zero-ice);
+}
+
+/**
+ * Dashboard Tile (stats)
+ */
+.dash-tile {
+  background: var(--zero-white);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  border: 1px solid rgba(0,133,202,0.08);
+  box-shadow: 0 2px 8px rgba(0,133,202,0.04);
+}
+
+.dash-tile-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--zero-dim);
+  margin-bottom: var(--space-sm);
+}
+
+.dash-tile-value {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 36px;
+  color: var(--zero-text);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   9. INFO OVERLAY (for widgets)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/**
+ * Info bar at bottom of widget tiles
+ */
+.widget-info {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  z-index: 3;
+}
+
+.widget-info-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--zero-dim);
+  margin-bottom: 3px;
+}
+
+.widget-info-value {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--text-md);
+  color: var(--zero-text);
+}
+
+.widget-info-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px);
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(0,133,202,0.12);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--text-base);
+  color: var(--zero-blue);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   10. MARKERS & INDICATORS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/**
+ * Map/Chart Position Marker
+ */
+.marker {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--zero-blue);
+  border: 3px solid var(--zero-white);
+  box-shadow: 0 2px 8px rgba(0,133,202,0.4), 0 0 0 4px rgba(0,133,202,0.15);
+}
+
+.marker::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: var(--zero-white);
+}
+
+/**
+ * Origin/Destination Point
+ */
+.point {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--zero-blue);
+  background: var(--zero-white);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   11. LAYOUT UTILITIES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.section {
+  padding: var(--space-4xl) 0;
+  position: relative;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,133,202,0.12), transparent);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   12. SECTION HEADERS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/**
+ * Section Tag (e.g., "01 — Overview")
+ */
+.section-tag {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--zero-blue);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.section-tag::before {
+  content: '';
+  width: 22px;
+  height: 1px;
+  background: var(--zero-blue);
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--text-3xl);
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  margin-bottom: 18px;
+  color: var(--zero-text);
+}
+
+.section-desc {
+  font-size: var(--text-lg);
+  line-height: 1.75;
+  color: var(--zero-muted);
+  max-width: 580px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   13. RESPONSIVE BREAKPOINTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/**
+ * Breakpoints:
+ * - Mobile:  max-width: 768px
+ * - Tablet:  max-width: 1024px
+ * - Desktop: > 1024px
+ */
+
+@media (max-width: 1024px) {
+  :root {
+    --container-padding: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --container-padding: 20px;
+    --text-3xl: 32px;
+    --text-4xl: 40px;
+  }
+  
+  .logo-mark .ln1 { font-size: 40px; }
+  .logo-mark .ln2 { font-size: 24px; }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --text-3xl: 28px;
+    --text-4xl: 32px;
+  }
+}
