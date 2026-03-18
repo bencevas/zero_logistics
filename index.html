@@ -1609,114 +1609,68 @@
       border-radius: 50%;
       background: #FFFFFF;
     }
-    .temp-log-header {
-      position: absolute;
-      top: 14px;
-      left: 16px;
-      z-index: 4;
-    }
-    .temp-log-header-label {
-      font-family: 'Azeret Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--dim);
-      margin-bottom: 2px;
-    }
-    .temp-log-header-value {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 22px;
-      color: var(--text);
-    }
     .temp-log-info {
       position: absolute;
       bottom: 16px;
       left: 16px;
       right: 16px;
       display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
       z-index: 3;
     }
-    .temp-log-info-left .tli-label {
+    .temp-log-status {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+    .temp-log-status-label {
       font-family: 'Azeret Mono', monospace;
       font-size: 9px;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--dim);
-      margin-bottom: 3px;
     }
-    .temp-log-info-left .tli-value {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 16px;
-      color: var(--text);
-    }
-    .temp-log-info-right {
+    .temp-log-status-badge {
       display: flex;
       align-items: center;
-      gap: 8px;
-      background: rgba(255,255,255,0.9);
+      gap: 6px;
+      background: rgba(255,255,255,0.85);
       backdrop-filter: blur(8px);
       padding: 6px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(0,133,202,0.12);
+    }
+    .temp-log-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+    .temp-log-status-text {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 12px;
+      color: var(--blue);
+    }
+    .temp-log-temp {
+      display: flex;
+      align-items: center;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(8px);
+      padding: 6px 10px;
       border-radius: 8px;
       border: 1px solid rgba(0,133,202,0.12);
     }
-    .temp-log-info-right .tli-range {
-      font-family: 'Azeret Mono', monospace;
-      font-size: 11px;
-      color: var(--dim);
+    .temp-log-temp-value {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--blue);
     }
-    .temp-log-info-right .tli-badge {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      background: rgba(16,185,129,0.1);
-      padding: 4px 10px;
-      border-radius: 6px;
-    }
-    .temp-log-info-right .tli-status {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #10B981;
-    }
-    .temp-log-info-right .tli-text {
-      font-family: 'Open Sans', sans-serif;
-      font-weight: 600;
-      font-size: 11px;
-      color: #10B981;
-    }
-    .temp-log-y-axis {
-      position: absolute;
-      left: 10px;
-      top: 15%;
-      bottom: 22%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .temp-log-y-label {
-      font-family: 'Azeret Mono', monospace;
-      font-size: 8px;
-      color: var(--dim);
-    }
-    .temp-log-x-axis {
-      position: absolute;
-      bottom: 52px;
-      left: 30px;
-      right: 12px;
-      display: flex;
-      justify-content: space-between;
-    }
-    .temp-log-x-label {
-      font-family: 'Azeret Mono', monospace;
-      font-size: 8px;
-      color: var(--dim);
-      transform: translate(-50%, -50%);
-      z-index: 2;
-    }
+
     /* ─── Dashboard Widgets ─────────────────────────────────── */
     .dash-widget {
       border-radius: 16px;
@@ -2980,46 +2934,25 @@
           <div class="temp-log-tile" style="margin:16px;">
             <!-- Grid background -->
             <div class="temp-log-bg"></div>
-            <!-- Header -->
-            <div class="temp-log-header">
-              <div class="temp-log-header-label">Time in storage</div>
-              <div class="temp-log-header-value">3 h 15 m</div>
-            </div>
-            <!-- Y-axis labels -->
-            <div class="temp-log-y-axis">
-              <span class="temp-log-y-label">+4°C</span>
-              <span class="temp-log-y-label">+2°C</span>
-              <span class="temp-log-y-label">0°C</span>
-            </div>
-            <!-- X-axis labels -->
-            <div class="temp-log-x-axis">
-              <span class="temp-log-x-label">0:00</span>
-              <span class="temp-log-x-label">1:00</span>
-              <span class="temp-log-x-label">2:00</span>
-              <span class="temp-log-x-label">3:00</span>
-              <span class="temp-log-x-label">Now</span>
-            </div>
             <!-- Flat temperature line -->
             <div class="temp-log-chart">
               <svg viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                <!-- Flat line at +2°C level -->
-                <path d="M20 50 L180 50" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                <path d="M10 50 L190 50" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" fill="none"/>
               </svg>
             </div>
             <!-- Current position marker -->
-            <div class="temp-log-marker" style="left: 90%; top: 50%;"></div>
+            <div class="temp-log-marker" style="left: 95%; top: 50%;"></div>
             <!-- Info overlay -->
             <div class="temp-log-info">
-              <div class="temp-log-info-left">
-                <div class="tli-label">Current</div>
-                <div class="tli-value">+2°C</div>
-              </div>
-              <div class="temp-log-info-right">
-                <span class="tli-range">0–4°C</span>
-                <div class="tli-badge">
-                  <div class="tli-status"></div>
-                  <span class="tli-text">In Range</span>
+              <div class="temp-log-status">
+                <span class="temp-log-status-label">Status</span>
+                <div class="temp-log-status-badge">
+                  <div class="temp-log-status-dot"></div>
+                  <span class="temp-log-status-text">In Range</span>
                 </div>
+              </div>
+              <div class="temp-log-temp">
+                <span class="temp-log-temp-value">+2°C</span>
               </div>
             </div>
           </div>
