@@ -2849,6 +2849,39 @@
           </div>
         </div>
 
+        <!-- Map Tile Widget (1:1) -->
+        <div class="glass comp-card" style="padding:0;">
+          <p class="comp-label" style="padding:24px 24px 0;">Map Widget</p>
+          <div class="map-tile" style="margin:16px;">
+            <div class="map-tile-bg"></div>
+            <!-- Stylized route path -->
+            <div class="map-tile-route">
+              <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M30 160 Q60 140, 80 120 T120 80 T170 40" stroke="#0085CA" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6 4" opacity="0.5"/>
+                <path d="M30 160 Q60 140, 80 120 T120 80" stroke="#0085CA" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <!-- Origin marker -->
+            <div class="map-tile-origin" style="left:15%; top:80%;"></div>
+            <span class="map-tile-label" style="left:18%; top:84%;">Oslo</span>
+            <!-- Destination marker -->
+            <div class="map-tile-dest" style="left:85%; top:20%;"></div>
+            <span class="map-tile-label" style="left:70%; top:12%;">Dubai</span>
+            <!-- Current position marker (animated pulse would go here) -->
+            <div class="map-tile-marker" style="left:60%; top:40%;"></div>
+            <!-- Info overlay -->
+            <div class="map-tile-info">
+              <div class="map-tile-info-left">
+                <div class="mti-label">Current</div>
+                <div class="mti-value">Amsterdam Hub</div>
+              </div>
+              <div class="map-tile-info-right">
+                <span class="mti-temp">−20°C</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Revenue Chart Widget (spans 2 columns) -->
         <div class="glass comp-card" style="padding:0; grid-column: span 2;">
           <p class="comp-label" style="padding:24px 24px 0;">Revenue Chart</p>
@@ -2990,39 +3023,6 @@
               <div class="temp-log-info-right">
                 <div class="tli-status"></div>
                 <span class="tli-temp">+2.4°C</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Map Tile Widget (1:1) -->
-        <div class="glass comp-card" style="padding:0;">
-          <p class="comp-label" style="padding:24px 24px 0;">Map Widget</p>
-          <div class="map-tile" style="margin:16px;">
-            <div class="map-tile-bg"></div>
-            <!-- Stylized route path -->
-            <div class="map-tile-route">
-              <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M30 160 Q60 140, 80 120 T120 80 T170 40" stroke="#0085CA" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6 4" opacity="0.5"/>
-                <path d="M30 160 Q60 140, 80 120 T120 80" stroke="#0085CA" stroke-width="2.5" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <!-- Origin marker -->
-            <div class="map-tile-origin" style="left:15%; top:80%;"></div>
-            <span class="map-tile-label" style="left:18%; top:84%;">Oslo</span>
-            <!-- Destination marker -->
-            <div class="map-tile-dest" style="left:85%; top:20%;"></div>
-            <span class="map-tile-label" style="left:70%; top:12%;">Dubai</span>
-            <!-- Current position marker (animated pulse would go here) -->
-            <div class="map-tile-marker" style="left:60%; top:40%;"></div>
-            <!-- Info overlay -->
-            <div class="map-tile-info">
-              <div class="map-tile-info-left">
-                <div class="mti-label">Current</div>
-                <div class="mti-value">Amsterdam Hub</div>
-              </div>
-              <div class="map-tile-info-right">
-                <span class="mti-temp">−20°C</span>
               </div>
             </div>
           </div>
