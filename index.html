@@ -1572,46 +1572,105 @@
       border-radius: 16px;
       overflow: hidden;
       position: relative;
-      background: #F0F7FB;
+      background: #FFFFFF;
     }
-    .temp-log-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(180deg, rgba(0,133,202,0.04) 0%, rgba(0,180,230,0.02) 100%);
-    }
-    .temp-log-alert-zone {
+    .temp-log-header {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      height: 20%;
-      background: linear-gradient(180deg, rgba(239,68,68,0.12) 0%, rgba(239,68,68,0.03) 100%);
-      border-bottom: 1px dashed rgba(239,68,68,0.3);
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      z-index: 4;
     }
-    .temp-log-alert-label {
+    .temp-log-header-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .temp-log-header-label {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 11px;
+      color: var(--dim);
+    }
+    .temp-log-header-value {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+      color: var(--text);
+    }
+    .temp-log-header-mid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+    .temp-log-header-mid-label {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 10px;
+      color: var(--glacier);
+    }
+    .temp-log-header-mid-value {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--glacier);
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+    .temp-log-header-mid-change {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 10px;
+      color: #10B981;
+    }
+    .temp-log-header-right {
+      text-align: right;
+    }
+    .temp-log-time {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      justify-content: flex-end;
+    }
+    .temp-log-time-value {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      color: #F97316;
+    }
+    .temp-log-time-unit {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 9px;
+      color: var(--dim);
+      text-transform: uppercase;
+    }
+    .temp-log-target-line {
       position: absolute;
-      top: 8px;
-      right: 12px;
+      top: 42%;
+      left: 12%;
+      right: 8%;
+      border-top: 1px dashed rgba(0,133,202,0.25);
+      z-index: 1;
+    }
+    .temp-log-target-label {
+      position: absolute;
+      right: 0;
+      top: -8px;
       font-family: 'Azeret Mono', monospace;
       font-size: 8px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #EF4444;
-      opacity: 0.7;
-    }
-    .temp-log-grid {
-      position: absolute;
-      inset: 0;
-      background:
-        repeating-linear-gradient(0deg, transparent, transparent 19.5%, rgba(0,133,202,0.06) 19.5%, rgba(0,133,202,0.06) 20%),
-        repeating-linear-gradient(90deg, transparent, transparent 16.5%, rgba(0,133,202,0.04) 16.5%, rgba(0,133,202,0.04) 16.66%);
+      color: var(--blue);
+      background: rgba(0,133,202,0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
     }
     .temp-log-y-axis {
       position: absolute;
       left: 8px;
-      top: 15%;
-      bottom: 20%;
+      top: 28%;
+      bottom: 28%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -1623,11 +1682,12 @@
     }
     .temp-log-x-axis {
       position: absolute;
-      bottom: 8px;
-      left: 15%;
-      right: 10%;
+      top: 72%;
+      left: 12%;
+      right: 8%;
       display: flex;
       justify-content: space-between;
+      padding-top: 8px;
     }
     .temp-log-x-label {
       font-family: 'Azeret Mono', monospace;
@@ -1636,10 +1696,10 @@
     }
     .temp-log-chart {
       position: absolute;
-      top: 20%;
-      left: 15%;
-      right: 10%;
-      bottom: 20%;
+      top: 28%;
+      left: 12%;
+      right: 8%;
+      height: 44%;
     }
     .temp-log-chart svg {
       width: 100%;
@@ -1647,25 +1707,18 @@
     }
     .temp-log-marker {
       position: absolute;
-      width: 16px;
-      height: 16px;
+      width: 14px;
+      height: 14px;
       border-radius: 50%;
-      background: var(--blue);
-      border: 3px solid #FFFFFF;
-      box-shadow: 0 2px 8px rgba(0,133,202,0.4), 0 0 0 4px rgba(0,133,202,0.15);
+      background: #F97316;
+      border: 2px solid #FFFFFF;
+      box-shadow: 0 2px 8px rgba(249,115,22,0.4);
       transform: translate(-50%, -50%);
       z-index: 2;
     }
-    .temp-log-marker::after {
-      content: '';
-      position: absolute;
-      inset: 4px;
-      background: #FFFFFF;
-      border-radius: 50%;
-    }
     .temp-log-info {
       position: absolute;
-      bottom: 28px;
+      bottom: 12px;
       left: 16px;
       right: 16px;
       display: flex;
@@ -1684,23 +1737,23 @@
     .temp-log-info-left .tli-value {
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
-      font-size: 15px;
+      font-size: 14px;
       color: var(--text);
     }
     .temp-log-info-right {
       display: flex;
       align-items: center;
       gap: 6px;
-      background: rgba(255,255,255,0.85);
+      background: rgba(255,255,255,0.9);
       backdrop-filter: blur(8px);
-      padding: 6px 10px;
+      padding: 5px 10px;
       border-radius: 8px;
       border: 1px solid rgba(0,133,202,0.12);
     }
     .temp-log-info-right .tli-temp {
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
-      font-size: 14px;
+      font-size: 13px;
       color: var(--blue);
     }
     .temp-log-info-right .tli-status {
@@ -2971,48 +3024,61 @@
         <div class="glass comp-card" style="padding:0;">
           <p class="comp-label" style="padding:24px 24px 0;">Temperature Log</p>
           <div class="temp-log-tile" style="margin:16px;">
-            <div class="temp-log-bg"></div>
-            <!-- Alert zone (above 4°C) -->
-            <div class="temp-log-alert-zone">
-              <span class="temp-log-alert-label">Alert Zone</span>
+            <!-- Header with metrics -->
+            <div class="temp-log-header">
+              <div class="temp-log-header-left">
+                <span class="temp-log-header-label">Temp required</span>
+                <span class="temp-log-header-value">+2.0°C</span>
+              </div>
+              <div class="temp-log-header-mid">
+                <span class="temp-log-header-mid-label">Current temp</span>
+                <div class="temp-log-header-mid-value">
+                  +2.4°C
+                  <span class="temp-log-header-mid-change">▲ 0.4</span>
+                </div>
+              </div>
+              <div class="temp-log-header-right">
+                <div class="temp-log-time">
+                  <span class="temp-log-time-value">04</span>
+                  <span class="temp-log-time-unit">hrs</span>
+                  <span class="temp-log-time-value">32</span>
+                  <span class="temp-log-time-unit">min</span>
+                </div>
+              </div>
             </div>
-            <!-- Grid lines -->
-            <div class="temp-log-grid"></div>
+            <!-- Target temperature line -->
+            <div class="temp-log-target-line">
+              <span class="temp-log-target-label">Target</span>
+            </div>
             <!-- Y-axis labels -->
             <div class="temp-log-y-axis">
-              <span class="temp-log-y-label">6°C</span>
-              <span class="temp-log-y-label">4°C</span>
-              <span class="temp-log-y-label">2°C</span>
+              <span class="temp-log-y-label">+4°C</span>
+              <span class="temp-log-y-label">+2°C</span>
               <span class="temp-log-y-label">0°C</span>
-              <span class="temp-log-y-label">−2°C</span>
-            </div>
-            <!-- X-axis labels -->
-            <div class="temp-log-x-axis">
-              <span class="temp-log-x-label">00:00</span>
-              <span class="temp-log-x-label">04:00</span>
-              <span class="temp-log-x-label">08:00</span>
-              <span class="temp-log-x-label">12:00</span>
-              <span class="temp-log-x-label">16:00</span>
-              <span class="temp-log-x-label">Now</span>
             </div>
             <!-- Temperature curve -->
             <div class="temp-log-chart">
               <svg viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                <!-- Fill under curve -->
-                <path d="M0 50 Q20 48, 35 52 T70 45 T100 55 T130 40 T160 48 T200 42 L200 100 L0 100 Z" fill="url(#tempGradient)" opacity="0.3"/>
-                <!-- Main curve line -->
-                <path d="M0 50 Q20 48, 35 52 T70 45 T100 55 T130 40 T160 48 T200 42" stroke="#0085CA" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-                <!-- Alert excursion spike -->
-                <path d="M100 55 Q108 35, 115 18 T130 40" stroke="#EF4444" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.8"/>
+                <!-- Simple bell curve - starts low, rises, then settles -->
+                <path d="M0 70 Q30 68, 50 55 Q80 35, 120 40 Q160 45, 180 42 L200 44" stroke="#F97316" stroke-width="2" stroke-linecap="round" fill="none"/>
                 <defs>
-                  <linearGradient id="tempGradient" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#0085CA" stop-opacity="0.4"/>
-                    <stop offset="100%" stop-color="#0085CA" stop-opacity="0"/>
+                  <linearGradient id="tempGradient2" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#F97316" stop-opacity="0.2"/>
+                    <stop offset="100%" stop-color="#F97316" stop-opacity="0"/>
                   </linearGradient>
                 </defs>
               </svg>
-              <!-- Current position marker -->
-              <div class="temp-log-marker" style="right: 0; top: 42%;"></div>
+              <!-- Current position marker at end of curve -->
+              <div class="temp-log-marker" style="right: 0; top: 44%;"></div>
+            </div>
+            <!-- X-axis labels (above footer) -->
+            <div class="temp-log-x-axis">
+              <span class="temp-log-x-label">0:00</span>
+              <span class="temp-log-x-label">1:00</span>
+              <span class="temp-log-x-label">2:00</span>
+              <span class="temp-log-x-label">3:00</span>
+              <span class="temp-log-x-label">4:00</span>
+              <span class="temp-log-x-label">Now</span>
             </div>
             <!-- Info overlay -->
             <div class="temp-log-info">
