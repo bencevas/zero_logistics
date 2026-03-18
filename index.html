@@ -1574,84 +1574,69 @@
       position: relative;
       background: #FFFFFF;
     }
-    .temp-log-header {
+    .temp-log-time-badge {
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      padding: 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      z-index: 4;
-    }
-    .temp-log-header-left {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-    .temp-log-header-label {
-      font-family: 'Open Sans', sans-serif;
-      font-size: 11px;
-      color: var(--dim);
-    }
-    .temp-log-header-value {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 24px;
-      color: var(--text);
-    }
-    .temp-log-header-mid {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2px;
-    }
-    .temp-log-header-mid-label {
-      font-family: 'Open Sans', sans-serif;
-      font-size: 10px;
-      color: var(--glacier);
-    }
-    .temp-log-header-mid-value {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 20px;
-      color: var(--glacier);
+      top: 12px;
+      right: 12px;
       display: flex;
       align-items: baseline;
-      gap: 4px;
-    }
-    .temp-log-header-mid-change {
-      font-family: 'Azeret Mono', monospace;
-      font-size: 10px;
-      color: #10B981;
-    }
-    .temp-log-header-right {
-      text-align: right;
-    }
-    .temp-log-time {
-      display: flex;
-      align-items: baseline;
-      gap: 4px;
-      justify-content: flex-end;
+      gap: 3px;
+      background: rgba(249,115,22,0.1);
+      padding: 6px 10px;
+      border-radius: 8px;
+      z-index: 5;
     }
     .temp-log-time-value {
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
-      font-size: 22px;
+      font-size: 16px;
       color: #F97316;
     }
     .temp-log-time-unit {
       font-family: 'Azeret Mono', monospace;
-      font-size: 9px;
-      color: var(--dim);
+      font-size: 8px;
+      color: #F97316;
       text-transform: uppercase;
+      opacity: 0.7;
+    }
+    .temp-log-temps {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      display: flex;
+      gap: 20px;
+      z-index: 4;
+    }
+    .temp-log-temp-item {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+    .temp-log-temp-label {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 10px;
+      color: var(--dim);
+    }
+    .temp-log-temp-value {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--text);
+    }
+    .temp-log-temp-value--current {
+      color: var(--glacier);
+    }
+    .temp-log-temp-change {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 9px;
+      color: #10B981;
+      margin-left: 4px;
     }
     .temp-log-target-line {
       position: absolute;
-      top: 42%;
-      left: 12%;
-      right: 8%;
+      top: 38%;
+      left: 10%;
+      right: 6%;
       border-top: 1px dashed rgba(0,133,202,0.25);
       z-index: 1;
     }
@@ -1668,9 +1653,9 @@
     }
     .temp-log-y-axis {
       position: absolute;
-      left: 8px;
-      top: 28%;
-      bottom: 28%;
+      left: 6px;
+      top: 22%;
+      bottom: 24%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -1682,12 +1667,11 @@
     }
     .temp-log-x-axis {
       position: absolute;
-      top: 72%;
-      left: 12%;
-      right: 8%;
+      top: 76%;
+      left: 10%;
+      right: 6%;
       display: flex;
       justify-content: space-between;
-      padding-top: 8px;
     }
     .temp-log-x-label {
       font-family: 'Azeret Mono', monospace;
@@ -1696,10 +1680,10 @@
     }
     .temp-log-chart {
       position: absolute;
-      top: 28%;
-      left: 12%;
-      right: 8%;
-      height: 44%;
+      top: 22%;
+      left: 10%;
+      right: 6%;
+      height: 54%;
     }
     .temp-log-chart svg {
       width: 100%;
@@ -3024,26 +3008,22 @@
         <div class="glass comp-card" style="padding:0;">
           <p class="comp-label" style="padding:24px 24px 0;">Temperature Log</p>
           <div class="temp-log-tile" style="margin:16px;">
-            <!-- Header with metrics -->
-            <div class="temp-log-header">
-              <div class="temp-log-header-left">
-                <span class="temp-log-header-label">Temp required</span>
-                <span class="temp-log-header-value">+2.0°C</span>
+            <!-- Time badge top right -->
+            <div class="temp-log-time-badge">
+              <span class="temp-log-time-value">04</span>
+              <span class="temp-log-time-unit">hrs</span>
+              <span class="temp-log-time-value">32</span>
+              <span class="temp-log-time-unit">min</span>
+            </div>
+            <!-- Temperature readings -->
+            <div class="temp-log-temps">
+              <div class="temp-log-temp-item">
+                <span class="temp-log-temp-label">Temp required</span>
+                <span class="temp-log-temp-value">+2.0°C</span>
               </div>
-              <div class="temp-log-header-mid">
-                <span class="temp-log-header-mid-label">Current temp</span>
-                <div class="temp-log-header-mid-value">
-                  +2.4°C
-                  <span class="temp-log-header-mid-change">▲ 0.4</span>
-                </div>
-              </div>
-              <div class="temp-log-header-right">
-                <div class="temp-log-time">
-                  <span class="temp-log-time-value">04</span>
-                  <span class="temp-log-time-unit">hrs</span>
-                  <span class="temp-log-time-value">32</span>
-                  <span class="temp-log-time-unit">min</span>
-                </div>
+              <div class="temp-log-temp-item">
+                <span class="temp-log-temp-label">Current temp</span>
+                <span class="temp-log-temp-value temp-log-temp-value--current">+2.4°C<span class="temp-log-temp-change">▲ 0.4</span></span>
               </div>
             </div>
             <!-- Target temperature line -->
