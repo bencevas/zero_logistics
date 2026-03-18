@@ -1566,6 +1566,271 @@
       color: var(--blue);
     }
 
+    /* ─── Dashboard Widgets ─────────────────────────────────── */
+    .dash-widget {
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    .dash-widget--primary {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--deep) 100%);
+      color: #FFFFFF;
+    }
+    .dash-widget--light {
+      background: #FFFFFF;
+      border: 1px solid rgba(0,133,202,0.1);
+    }
+    .dash-widget-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .dash-widget-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .dash-widget--primary .dash-widget-title {
+      color: rgba(255,255,255,0.85);
+    }
+    .dash-widget--light .dash-widget-title {
+      color: var(--muted);
+    }
+    .dash-widget-title-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+    .dash-widget-period {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .dash-widget--primary .dash-widget-period {
+      color: rgba(255,255,255,0.6);
+    }
+    .dash-widget--light .dash-widget-period {
+      color: var(--dim);
+    }
+    .dash-widget-value {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 1.1;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .dash-widget--primary .dash-widget-value {
+      color: #FFFFFF;
+    }
+    .dash-widget--light .dash-widget-value {
+      color: var(--text);
+    }
+    .dash-widget-change {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+    .dash-widget-change--up {
+      color: #10B981;
+    }
+    .dash-widget-change--down {
+      color: #EF4444;
+    }
+    .dash-widget--primary .dash-widget-change--up {
+      color: #6EE7B7;
+    }
+    .dash-widget-sub {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 12px;
+      margin-top: 4px;
+    }
+    .dash-widget--primary .dash-widget-sub {
+      color: rgba(255,255,255,0.6);
+    }
+    .dash-widget--light .dash-widget-sub {
+      color: var(--dim);
+    }
+    .dash-widget-progress {
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .dash-widget-progress-bar {
+      flex: 1;
+      height: 6px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .dash-widget-progress-fill {
+      height: 100%;
+      background: #FFFFFF;
+      border-radius: 3px;
+    }
+    .dash-widget-progress-label {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 10px;
+      color: rgba(255,255,255,0.8);
+      white-space: nowrap;
+    }
+    .dash-widget-metric {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 28px;
+      color: var(--text);
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .dash-widget-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+      height: 24px;
+      margin-top: 8px;
+    }
+    .dash-widget-bar {
+      width: 6px;
+      background: var(--glacier);
+      border-radius: 2px;
+      opacity: 0.3;
+    }
+    .dash-widget-bar.is-active {
+      opacity: 1;
+    }
+    .dash-widget-footer {
+      margin-top: auto;
+      padding-top: 12px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 11px;
+      color: var(--dim);
+    }
+    
+    /* Revenue Chart Widget */
+    .dash-chart-widget {
+      background: #FFFFFF;
+      border: 1px solid rgba(0,133,202,0.1);
+      border-radius: 16px;
+      padding: 24px;
+      grid-column: span 2;
+    }
+    .dash-chart-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .dash-chart-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .dash-chart-value {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 36px;
+      color: var(--text);
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+    .dash-chart-legend {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-end;
+    }
+    .dash-chart-legend-item {
+      text-align: right;
+    }
+    .dash-chart-legend-label {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .dash-chart-legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+    }
+    .dash-chart-legend-dot--primary {
+      background: var(--blue);
+    }
+    .dash-chart-legend-dot--secondary {
+      background: var(--deep);
+    }
+    .dash-chart-legend-value {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--text);
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+    .dash-chart-bars {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      height: 140px;
+      gap: 16px;
+      padding-top: 20px;
+    }
+    .dash-chart-bar-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+    }
+    .dash-chart-bar-stack {
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+      height: 120px;
+    }
+    .dash-chart-bar {
+      width: 20px;
+      border-radius: 4px 4px 0 0;
+    }
+    .dash-chart-bar--primary {
+      background: linear-gradient(180deg, var(--blue) 0%, var(--glacier) 100%);
+    }
+    .dash-chart-bar--secondary {
+      background: var(--deep);
+    }
+    .dash-chart-bar-label {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 10px;
+      color: var(--dim);
+      text-transform: uppercase;
+    }
+
     /* ─── BRAND VOICE ────────────────────────────────────────── */
     .voice-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 52px; }
     .voice-card { padding: 34px 26px; }
@@ -2280,6 +2545,60 @@
           </div>
         </div>
 
+        <!-- Revenue Widget (Primary) -->
+        <div class="glass comp-card" style="padding:0;">
+          <p class="comp-label" style="padding:24px 24px 0;">Revenue Widget</p>
+          <div class="dash-widget dash-widget--primary" style="margin:16px; flex:1;">
+            <div class="dash-widget-header">
+              <div class="dash-widget-title">
+                <span class="dash-widget-title-icon">💰</span>
+                Total Shipment Revenue
+              </div>
+              <span class="dash-widget-period">Last 30 days</span>
+            </div>
+            <div class="dash-widget-value">
+              $182,320
+              <span class="dash-widget-change dash-widget-change--up">+2.87% ↗</span>
+            </div>
+            <div class="dash-widget-sub">vs last month</div>
+            <div class="dash-widget-progress">
+              <div class="dash-widget-progress-bar">
+                <div class="dash-widget-progress-fill" style="width: 68%;"></div>
+              </div>
+              <span class="dash-widget-progress-label">+$2,749 today</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Active Shipments Widget -->
+        <div class="glass comp-card" style="padding:0;">
+          <p class="comp-label" style="padding:24px 24px 0;">Active Shipments</p>
+          <div class="dash-widget dash-widget--light" style="margin:16px; flex:1;">
+            <div class="dash-widget-header">
+              <div class="dash-widget-title">
+                <span class="dash-widget-title-icon">📦</span>
+                Active Shipments
+              </div>
+              <span class="dash-widget-period">Last 30 days</span>
+            </div>
+            <div class="dash-widget-metric">
+              86
+              <span class="dash-widget-change dash-widget-change--up">+40.93% ↗</span>
+            </div>
+            <div class="dash-widget-sub">vs last month</div>
+            <div class="dash-widget-bars">
+              <div class="dash-widget-bar" style="height:40%;"></div>
+              <div class="dash-widget-bar" style="height:55%;"></div>
+              <div class="dash-widget-bar" style="height:45%;"></div>
+              <div class="dash-widget-bar" style="height:70%;"></div>
+              <div class="dash-widget-bar" style="height:85%;"></div>
+              <div class="dash-widget-bar is-active" style="height:100%;"></div>
+              <div class="dash-widget-bar is-active" style="height:90%;"></div>
+            </div>
+            <div class="dash-widget-footer">Increase in active shipments +12</div>
+          </div>
+        </div>
+
         <!-- Map Tile Widget (1:1) -->
         <div class="glass comp-card" style="padding:0;">
           <p class="comp-label" style="padding:24px 24px 0;">Map Widget</p>
@@ -2308,6 +2627,91 @@
               </div>
               <div class="map-tile-info-right">
                 <span class="mti-temp">−20°C</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Revenue Chart Widget (spans 2 columns) -->
+        <div class="glass comp-card" style="padding:0; grid-column: span 2;">
+          <p class="comp-label" style="padding:24px 24px 0;">Revenue Chart</p>
+          <div class="dash-chart-widget" style="margin:16px; border:none;">
+            <div class="dash-chart-header">
+              <div>
+                <div class="dash-chart-title">
+                  <span class="dash-widget-title-icon">📊</span>
+                  Total Revenue
+                </div>
+                <div class="dash-chart-value">
+                  $183,320
+                  <span class="dash-widget-change dash-widget-change--up">+40.93% ↗</span>
+                </div>
+              </div>
+              <div class="dash-chart-legend">
+                <div class="dash-chart-legend-item">
+                  <div class="dash-chart-legend-label">
+                    <span class="dash-chart-legend-dot dash-chart-legend-dot--primary"></span>
+                    Freight revenue
+                  </div>
+                  <div class="dash-chart-legend-value">
+                    $100,000
+                    <span class="dash-widget-change dash-widget-change--up">+2.87% ↗</span>
+                  </div>
+                </div>
+                <div class="dash-chart-legend-item">
+                  <div class="dash-chart-legend-label">
+                    <span class="dash-chart-legend-dot dash-chart-legend-dot--secondary"></span>
+                    Cold storage fees
+                  </div>
+                  <div class="dash-chart-legend-value">
+                    $24,628
+                    <span class="dash-widget-change dash-widget-change--down">−9.24% ↘</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="dash-chart-bars">
+              <div class="dash-chart-bar-group">
+                <div class="dash-chart-bar-stack">
+                  <div class="dash-chart-bar dash-chart-bar--primary" style="height:65px;"></div>
+                  <div class="dash-chart-bar dash-chart-bar--secondary" style="height:25px;"></div>
+                </div>
+                <span class="dash-chart-bar-label">Jan</span>
+              </div>
+              <div class="dash-chart-bar-group">
+                <div class="dash-chart-bar-stack">
+                  <div class="dash-chart-bar dash-chart-bar--primary" style="height:80px;"></div>
+                  <div class="dash-chart-bar dash-chart-bar--secondary" style="height:30px;"></div>
+                </div>
+                <span class="dash-chart-bar-label">Feb</span>
+              </div>
+              <div class="dash-chart-bar-group">
+                <div class="dash-chart-bar-stack">
+                  <div class="dash-chart-bar dash-chart-bar--primary" style="height:70px;"></div>
+                  <div class="dash-chart-bar dash-chart-bar--secondary" style="height:28px;"></div>
+                </div>
+                <span class="dash-chart-bar-label">Mar</span>
+              </div>
+              <div class="dash-chart-bar-group">
+                <div class="dash-chart-bar-stack">
+                  <div class="dash-chart-bar dash-chart-bar--primary" style="height:95px;"></div>
+                  <div class="dash-chart-bar dash-chart-bar--secondary" style="height:35px;"></div>
+                </div>
+                <span class="dash-chart-bar-label">Apr</span>
+              </div>
+              <div class="dash-chart-bar-group">
+                <div class="dash-chart-bar-stack">
+                  <div class="dash-chart-bar dash-chart-bar--primary" style="height:55px;"></div>
+                  <div class="dash-chart-bar dash-chart-bar--secondary" style="height:20px;"></div>
+                </div>
+                <span class="dash-chart-bar-label">May</span>
+              </div>
+              <div class="dash-chart-bar-group">
+                <div class="dash-chart-bar-stack">
+                  <div class="dash-chart-bar dash-chart-bar--primary" style="height:75px;"></div>
+                  <div class="dash-chart-bar dash-chart-bar--secondary" style="height:22px;"></div>
+                </div>
+                <span class="dash-chart-bar-label">Jun</span>
               </div>
             </div>
           </div>
