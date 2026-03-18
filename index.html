@@ -1831,6 +1831,160 @@
       text-transform: uppercase;
     }
 
+    /* Dashboard Tiles Section */
+    .dash-tiles-section {
+      padding: 80px 0;
+      background: linear-gradient(180deg, #F8FBFD 0%, #FFFFFF 100%);
+    }
+    .dash-tiles-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .dash-tiles-tag {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 14px;
+    }
+    .dash-tiles-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 32px;
+      color: var(--text);
+    }
+    .dash-tiles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .dash-tile {
+      background: #FFFFFF;
+      border-radius: 20px;
+      padding: 28px;
+      border: 1px solid rgba(0,133,202,0.08);
+      box-shadow: 0 4px 24px rgba(0,133,202,0.06);
+      display: flex;
+      flex-direction: column;
+    }
+    .dash-tile--primary {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--deep) 100%);
+      border: none;
+      color: #FFFFFF;
+    }
+    .dash-tile-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .dash-tile-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .dash-tile--primary .dash-tile-title {
+      color: rgba(255,255,255,0.85);
+    }
+    .dash-tile-icon {
+      font-size: 16px;
+    }
+    .dash-tile-period {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dim);
+    }
+    .dash-tile--primary .dash-tile-period {
+      color: rgba(255,255,255,0.5);
+    }
+    .dash-tile-value {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 42px;
+      line-height: 1;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .dash-tile--primary .dash-tile-value {
+      color: #FFFFFF;
+    }
+    .dash-tile-sub {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 13px;
+      color: var(--dim);
+      margin-bottom: 20px;
+    }
+    .dash-tile--primary .dash-tile-sub {
+      color: rgba(255,255,255,0.6);
+    }
+    .dash-tile-footer {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .dash-tile-progress {
+      flex: 1;
+      height: 8px;
+      background: rgba(0,133,202,0.1);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .dash-tile--primary .dash-tile-progress {
+      background: rgba(255,255,255,0.2);
+    }
+    .dash-tile-progress-fill {
+      height: 100%;
+      border-radius: 4px;
+    }
+    .dash-tile-progress-fill--blue {
+      background: linear-gradient(90deg, var(--blue), var(--glacier));
+    }
+    .dash-tile-progress-fill--white {
+      background: #FFFFFF;
+    }
+    .dash-tile-progress-fill--red {
+      background: linear-gradient(90deg, #FCA5A5, #EF4444);
+    }
+    .dash-tile-change {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .dash-tile-change--up {
+      color: #10B981;
+    }
+    .dash-tile-change--down {
+      color: #EF4444;
+    }
+    .dash-tile--primary .dash-tile-change--up {
+      color: #6EE7B7;
+    }
+    .dash-tile-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+      height: 32px;
+      margin-top: auto;
+    }
+    .dash-tile-bar {
+      flex: 1;
+      background: var(--glacier);
+      border-radius: 3px;
+      opacity: 0.25;
+    }
+    .dash-tile-bar.is-active {
+      opacity: 1;
+    }
+
     /* ─── BRAND VOICE ────────────────────────────────────────── */
     .voice-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 52px; }
     .voice-card { padding: 34px 26px; }
@@ -1995,6 +2149,12 @@
       .fleet-stats { gap: 24px; flex-wrap: wrap; }
       .fleet-stat-value { font-size: 22px; }
       .fleet-image-wrap { order: -1; }
+
+      /* Dashboard Tiles */
+      .dash-tiles-section { padding: 60px 0; }
+      .dash-tiles-grid { grid-template-columns: 1fr; gap: 16px; }
+      .dash-tiles-title { font-size: 26px; }
+      .dash-tile-value { font-size: 36px; }
 
       /* Scheduling */
       #scheduling { padding: 60px 0; min-height: auto; }
@@ -2714,6 +2874,83 @@
                 <span class="dash-chart-bar-label">Jun</span>
               </div>
             </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Dashboard Tiles Section ──────────────────────────── -->
+  <section class="dash-tiles-section">
+    <div class="container">
+      <div class="dash-tiles-header">
+        <p class="dash-tiles-tag">Analytics Dashboard</p>
+        <h2 class="dash-tiles-title">Real-time Metrics</h2>
+      </div>
+      <div class="dash-tiles-grid">
+        
+        <!-- Revenue Tile -->
+        <div class="dash-tile dash-tile--primary">
+          <div class="dash-tile-header">
+            <div class="dash-tile-title">
+              <span class="dash-tile-icon">💰</span>
+              Total Shipment Revenue
+            </div>
+            <span class="dash-tile-period">Last 30 days</span>
+          </div>
+          <div class="dash-tile-value">$182,320</div>
+          <div class="dash-tile-sub">vs last month</div>
+          <div class="dash-tile-footer">
+            <div class="dash-tile-progress">
+              <div class="dash-tile-progress-fill dash-tile-progress-fill--white" style="width: 72%;"></div>
+            </div>
+            <span class="dash-tile-change dash-tile-change--up">+$2,749 today</span>
+          </div>
+        </div>
+
+        <!-- Active Shipments Tile -->
+        <div class="dash-tile">
+          <div class="dash-tile-header">
+            <div class="dash-tile-title">
+              <span class="dash-tile-icon">📦</span>
+              Active Shipments
+            </div>
+            <span class="dash-tile-period">Last 30 days</span>
+          </div>
+          <div class="dash-tile-value">86</div>
+          <div class="dash-tile-sub">vs last month</div>
+          <div class="dash-tile-bars">
+            <div class="dash-tile-bar" style="height:35%;"></div>
+            <div class="dash-tile-bar" style="height:50%;"></div>
+            <div class="dash-tile-bar" style="height:42%;"></div>
+            <div class="dash-tile-bar" style="height:65%;"></div>
+            <div class="dash-tile-bar" style="height:78%;"></div>
+            <div class="dash-tile-bar is-active" style="height:100%;"></div>
+            <div class="dash-tile-bar is-active" style="height:88%;"></div>
+          </div>
+          <div class="dash-tile-footer" style="margin-top:16px;">
+            <span class="dash-tile-change dash-tile-change--up">+40.93% ↗</span>
+            <span style="font-size:12px; color:var(--dim);">Increase +12</span>
+          </div>
+        </div>
+
+        <!-- Failed Deliveries Tile -->
+        <div class="dash-tile">
+          <div class="dash-tile-header">
+            <div class="dash-tile-title">
+              <span class="dash-tile-icon">⚠️</span>
+              Failed Deliveries
+            </div>
+            <span class="dash-tile-period">Last 30 days</span>
+          </div>
+          <div class="dash-tile-value">14</div>
+          <div class="dash-tile-sub">vs last month</div>
+          <div class="dash-tile-footer">
+            <div class="dash-tile-progress">
+              <div class="dash-tile-progress-fill dash-tile-progress-fill--red" style="width: 28%;"></div>
+            </div>
+            <span class="dash-tile-change dash-tile-change--down">+12.26 issues</span>
           </div>
         </div>
 
